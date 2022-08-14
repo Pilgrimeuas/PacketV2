@@ -260,13 +260,13 @@ void getAnchor() {//get RedStone id 152
 void getGS() {//get Piston 29  //77 is button //143 is button
 	auto supplies = g_Data.getLocalPlayer()->getSupplies();
 	auto inv = supplies->inventory;  // g_Data.getLocalPlayer()->getSupplies()->inventory->getItemStack(g_Data.getLocalPlayer()->getSupplies())->getItem()->itemID
-	if (g_Data.getLocalPlayer()->getSelectedItemId() == 152 || g_Data.getLocalPlayer()->getSelectedItemId() == 76 || g_Data.getLocalPlayer()->getSelectedItemId() == 77 || g_Data.getLocalPlayer()->getSelectedItemId() == 143)
+	if (g_Data.getLocalPlayer()->getSelectedItemId() == 152 || g_Data.getLocalPlayer()->getSelectedItemId() == 76 || g_Data.getLocalPlayer()->getSelectedItemId() == 77 || g_Data.getLocalPlayer()->getSelectedItemId() == 143 || g_Data.getLocalPlayer()->getSelectedItemId() == 395 || g_Data.getLocalPlayer()->getSelectedItemId() == 396 || g_Data.getLocalPlayer()->getSelectedItemId() == 397 || g_Data.getLocalPlayer()->getSelectedItemId() == 398 || g_Data.getLocalPlayer()->getSelectedItemId() == 399)
 		return;
 
 	for (int n = 0; n < 9; n++) {
 		C_ItemStack* stack = inv->getItemStack(n);
 		if (stack->item != nullptr) {
-			if (stack->getItem()->itemId == 152 || stack->getItem()->itemId == 76 || stack->getItem()->itemId == 77 || stack->getItem()->itemId == 143) {  // select redstone or more
+			if (stack->getItem()->itemId == 152 || stack->getItem()->itemId == 76 || stack->getItem()->itemId == 77 || stack->getItem()->itemId == 143 || stack->getItem()->itemId == 395 || stack->getItem()->itemId == 396 || stack->getItem()->itemId == 397 || stack->getItem()->itemId == 398 || stack->getItem()->itemId == 399) {  // select redstone or more
 				supplies->selectedHotbarSlot = n;
 				return;
 			}
@@ -584,34 +584,36 @@ void PistonAura::onTick(C_GameMode* gm) {
 			takentrap = true;
 			return;
 		}
-		C_Block* block2 = gm->player->region->getBlock(neckBreaker);
+		C_Block* block2 = gm->player->region->getBlock(neckBreaker.add(0, 1, 0));
 		auto bid = block2->toLegacy()->blockId;
 		switch (Option) {
+			if (bid == 0) {
 		case 1:
 
-			if (bid == 0) {
-				if (airplace)
-					gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
-				else
-					gm->buildBlock(&vec3_ti(neckBreaker), 0);
-				break;
+
+			if (airplace)
+				gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
+			else
+				gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
+
+			break;
 		case 2:
 			if (airplace)
 				gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
 			else
-				gm->buildBlock(&vec3_ti(neckBreaker), 0);
+				gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
 			break;
 		case 3:
 			if (airplace)
 				gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
 			else
-				gm->buildBlock(&vec3_ti(neckBreaker), 0);
+				gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
 			break;
 		case 4:
 			if (airplace)
 				gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
 			else
-				gm->buildBlock(&vec3_ti(neckBreaker), 0);
+				gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
 			break;
 			}
 		}
@@ -626,6 +628,53 @@ void PistonAura::onTick(C_GameMode* gm) {
 		return;
 	}
 	//new start
+
+
+
+	if (!hasDetonated) {
+		if (!takenRS) {//redstone
+			getGS();
+			takenRS = true;
+			return;
+		}
+		switch (Option) {
+		case 1:
+
+
+			if (airplace)
+				gm->buildBlock(&vec3_ti(rw.add(0, 1, 0)), 0);
+			else
+				gm->buildBlock(&vec3_ti(rw), 0);
+			break;
+		case 2:
+			if (airplace)
+				gm->buildBlock(&vec3_ti(re.add(0, 1, 0)), 0);
+			else
+				gm->buildBlock(&vec3_ti(re), 0);
+			break;
+		case 3:
+			if (airplace)
+				gm->buildBlock(&vec3_ti(rs.add(0, 1, 0)), 0);
+			else
+				gm->buildBlock(&vec3_ti(rs), 0);
+			break;
+		case 4:
+			if (airplace)
+				gm->buildBlock(&vec3_ti(rn.add(0, 1, 0)), 0);
+			else
+				gm->buildBlock(&vec3_ti(rn), 0);
+			break;
+		}
+		hasDetonated = true;
+	}
+	if (tickTimer >= pdelay && !DhasDetonated) {
+		tickTimer = 0;
+		DhasDetonated = true;
+	}
+	else if (tickTimer < pdelay && !DhasDetonated) {
+		tickTimer++;
+		return;
+	}
 	if (!hasCharged) {
 		if (!takenGS) {
 			getCr();//getCr
@@ -691,53 +740,6 @@ void PistonAura::onTick(C_GameMode* gm) {
 		return;
 	}
 	//end
-
-
-	if (!hasDetonated) {
-		if (!takenRS) {//redstone
-			getGS();
-			takenRS = true;
-			return;
-		}
-		switch (Option) {
-		case 1:
-
-
-			if (airplace)
-				gm->buildBlock(&vec3_ti(rw.add(0, 1, 0)), 0);
-			else
-				gm->buildBlock(&vec3_ti(rw), 0);
-			break;
-		case 2:
-			if (airplace)
-				gm->buildBlock(&vec3_ti(re.add(0, 1, 0)), 0);
-			else
-				gm->buildBlock(&vec3_ti(re), 0);
-			break;
-		case 3:
-			if (airplace)
-				gm->buildBlock(&vec3_ti(rs.add(0, 1, 0)), 0);
-			else
-				gm->buildBlock(&vec3_ti(rs), 0);
-			break;
-		case 4:
-			if (airplace)
-				gm->buildBlock(&vec3_ti(rn.add(0, 1, 0)), 0);
-			else
-				gm->buildBlock(&vec3_ti(rn), 0);
-			break;
-		}
-		hasDetonated = true;
-	}
-	if (tickTimer >= pdelay && !DhasDetonated) {
-		tickTimer = 0;
-		DhasDetonated = true;
-	}
-	else if (tickTimer < pdelay && !DhasDetonated) {
-		tickTimer++;
-		return;
-	}
-
 	if (!hasbb) {
 		switch (Option) {
 		case 1:

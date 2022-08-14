@@ -264,10 +264,6 @@ void AnchorAura::onTick(C_GameMode* gm) {
 		return;
 	if (!g_Data.canUseMoveKeys())
 		return;
-	if (g_Data.getLocalPlayer()->getSelectedItemId() == 607)
-		return;
-	if (airplace)
-		if (g_Data.getLocalPlayer()->getSupplies()->inventory->getItemStack(g_Data.getLocalPlayer()->getSupplies()->selectedHotbarSlot)->getItem()->isFood() && g_Data.isRightClickDown()) return;
 	targetList.clear();
 	g_Data.forEachEntity(Findentbyc);
 
@@ -276,8 +272,12 @@ void AnchorAura::onTick(C_GameMode* gm) {
 	if (!targetList.empty()) {
 		for (auto& i : targetList) {
 			vec3_t enemyLoc = (i->eyePos0).floor();
-
-			bottom1 = enemyLoc.add(0, 1, 0);
+			bottom2 = enemyLoc.add(1, 0, 0);
+			mid1 = enemyLoc.add(0, 1, 0);
+			bottom3 = enemyLoc.add(-1, 0, 0);
+			bottom4 = enemyLoc.add(0, 0, 1);
+			bottom1 = enemyLoc.add(0, 0, -1);
+			//bottom1 = enemyLoc.add(0, 1, 0);
 			if (!hasPlacedAnchor) {
 				// NOT placed anchor
 				if (!takenAnchor) {
@@ -291,11 +291,22 @@ void AnchorAura::onTick(C_GameMode* gm) {
 				}
 
 
-				if (g_Data.getLocalPlayer()->region->getBlock(bottom1)->toLegacy()->blockId == 0) {
+				if (g_Data.getLocalPlayer()->region->getBlock(mid1)->toLegacy()->blockId == 0 || g_Data.getLocalPlayer()->region->getBlock(bottom1)->toLegacy()->blockId == 0) {
 					for (auto& i : targetList)
-						gm->buildBlock(&vec3_ti(bottom1), 0);
+						if (spoof) {
+							gm->buildBlock(&vec3_ti(mid1), 0);
+							gm->buildBlock(&vec3_ti(bottom1), 0);
+							gm->buildBlock(&vec3_ti(bottom2), 0);
+							gm->buildBlock(&vec3_ti(bottom3), 0);
+							gm->buildBlock(&vec3_ti(bottom4), 0);
+						}
+						else {
+							gm->buildBlock(&vec3_ti(mid1), 0);
+						}
 					Option = 1;
-					stopSp();
+					if (spoof) {
+						stopSp();
+					}
 				}
 				//stopSp();
 				hasPlacedAnchor = true;
@@ -326,14 +337,26 @@ void AnchorAura::onTick(C_GameMode* gm) {
 				switch (Option) {
 				case 1:
 
-					bool sb = g_Data.getLocalPlayer()->region->getBlock(bottom1)->toLegacy()->blockId != 0;
-					if (sb) {
-						gm->buildBlock(&vec3_ti(bottom1), 0);
+					bool sb = g_Data.getLocalPlayer()->region->getBlock(mid1)->toLegacy()->blockId != 0;
+					bool sb2 = g_Data.getLocalPlayer()->region->getBlock(bottom1)->toLegacy()->blockId != 0;
+					if (sb || sb2) {
+						if (spoof) {
+							gm->buildBlock(&vec3_ti(mid1), 0);
+							gm->buildBlock(&vec3_ti(bottom1), 0);
+							gm->buildBlock(&vec3_ti(bottom2), 0);
+							gm->buildBlock(&vec3_ti(bottom3), 0);
+							gm->buildBlock(&vec3_ti(bottom4), 0);
+						}
+						else {
+							gm->buildBlock(&vec3_ti(mid1), 0);
+						}
 						stopSp();
 					}
 					break;
 				}
-				//stopSp();
+				if (spoof) {
+					stopSp();
+				}
 
 				hasCharged = true;
 				takenAnchor = false;
@@ -363,12 +386,22 @@ void AnchorAura::onTick(C_GameMode* gm) {
 			if (!hasDetonated) {
 				switch (Option) {
 				case 1:
-					gm->buildBlock(&vec3_ti(bottom1), 0);
+					if (spoof) {
+						gm->buildBlock(&vec3_ti(mid1), 0);
+						gm->buildBlock(&vec3_ti(bottom1), 0);
+						gm->buildBlock(&vec3_ti(bottom2), 0);
+						gm->buildBlock(&vec3_ti(bottom3), 0);
+						gm->buildBlock(&vec3_ti(bottom4), 0);
+					}
+					else {
+						gm->buildBlock(&vec3_ti(mid1), 0);
+					}
 					//stopSp();
 					//gm->buildBlock(&vec3_ti(bottom1), 0);
 					break;
+				}if (spoof) {
+					stopSp();
 				}
-				stopSp();
 
 				hasDetonated = true;
 			}

@@ -117,11 +117,14 @@ void SelfTrap::onTick(C_GameMode* gm) {
 	if (sb) {
 		if (g_Data.getLocalPlayer()->region->getBlock(upper)->toLegacy()->blockId == 0)
 			gm->buildBlock(&vec3_ti(upper), 0);
+		gm->buildBlock(&vec3_ti(b1), 0);
+		gm->buildBlock(&vec3_ti(b2), 0);
+		gm->buildBlock(&vec3_ti(b3), 0);
+		gm->buildBlock(&vec3_ti(b4), 0);
 		stopsp1();
 	}
 	else
-		gm->buildBlock(&vec3_ti(upper), 0);
-	gm->buildBlock(&vec3_ti(b1), 0);
+		gm->buildBlock(&vec3_ti(b1), 0);
 	gm->buildBlock(&vec3_ti(b2), 0);
 	gm->buildBlock(&vec3_ti(b3), 0);
 	gm->buildBlock(&vec3_ti(b4), 0);

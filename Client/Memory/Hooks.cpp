@@ -313,7 +313,7 @@ void Hooks::Enable() {
 int Hooks::ForceThirdPersonLol(__int64 a1) {
 	static auto func = g_Hooks.forceThirdPerson->GetFastcall<int, __int64>();
 	if (a1 == 1) g_Hooks.isThirdPerson = false;
-	if (!moduleMgr->getModule<ADisabler>()->isEnabled() && moduleMgr->getModule<ADisabler>()->isForceThird)
+	if (!moduleMgr->getModule<ADisabler>()->isEnabled() && (!moduleMgr->getModule<ADisabler>()->sb))
 		return 0;
 	else return func(a1);
 }
@@ -581,51 +581,11 @@ __int64 Hooks::RenderText(__int64 a1, C_MinecraftUIRenderContext* renderCtx) {
 			string add = gray + "[+] " + string(RESET);
 			string remove = gray + "[-] " + string(RESET);
 			string fix = gray + "[*] " + string(RESET);
+			DrawUtils::drawImage("textures/entity/bed/purple.png", vec2_t(0, 0), vec2_t(200, 200), vec2_t(0.125f, 0.125f), vec2_t(0.125f, 0.125f));
 
-			string changeLog = (gray + bold + string("Changelogs") + ": \n" + RESET +
-				gray + bold + string("V2.1") + ": \n" + RESET +
-				add + "Added Separation slider for colors in Interface \n" +
-				fix + "Scaffold Extend now works on Hive mode \n" +
-				add + "Added Smoothing slider to Killaura \n" +
-				fix + "Fixed Nametags bug \n" +
-				fix + "Fixed 30+ bugs \n" +
-				"\n" +
-				gray + bold + interfaceMod->versionStr + ": \n" + RESET +
-				gray + bold + "General: \n" + RESET +
-				add + "Added AutoBridgeWin to AutoHive (wip) \n" +
-				fix + "Increased the max speed of SpeedMine\n" +
-				add + "Added HudEditor option for ClickGUI \n" +
-				fix + "HUD now hides when F1 is pressed \n" +
-				fix + "Updated Changelogs Design \n" +
-				add + "Recoded HackerDetector \n" +
-				fix + "Fixed ClickTP crashing \n" +
-				add + "Added FastUse Module \n" +
-				fix + "Recoded TPAura (wip) \n" +
-				fix + "Fixed Aimbot crashing \n" +
-				fix + "Fixed several bugs \n" +
-				"\n" +
-				gray + bold + "InvManager: \n" + RESET +
-				fix + "Fixed not putting on certain armor \n" +
-				fix + "Swing is now server-sided \n" +
-				"\n" +
-				gray + bold + "Scaffold: \n" + RESET +
-				fix + "Made Extend more customizable \n" +
-				fix + "Fixed Extend when strafing \n" +
-				fix + "Fixed Hive Tower \n" +
-				fix + "Fixed LockY \n" +
-				"\n" +
-				gray + bold + "Speed: \n" + RESET +
-				fix + "Fixed Hive and HiveSafe \n" +
-				add + "Added Boost Mode \n" +
-				remove + "Removed HiveLow \n" +
-				"\n" +
-				gray + bold + "Step: \n" + RESET +
-				fix + "Fixed Settings not saving properly \n" +
-				remove + "Removed Motion Mode \n"
-				);
 
 			//float size = g_Data.getClientInstance()->getGuiData()->widthGame / g_Data.getClientInstance()->getGuiData()->heightGame - 1.7769f; // interesting
-			DrawUtils::drawText(vec2_t(5, 5), &changeLog, MC_Color(255, 255, 255), 0.669, 1, true);
+			//DrawUtils::drawText(vec2_t(5, 5), &changeLog, MC_Color(255, 255, 255), 0.669, 1, true);
 
 		}
 		else {

@@ -16,6 +16,7 @@
 
 // Combat
 #include "Modules/Combat/AutoClicker.h"
+#include "Modules/Combat/PacketPlace.h"
 #include "Modules/Combat/CrystalAura.h"
 #include "Modules/Combat/CrystalAuraWTA.h"
 #include "Modules/Combat/TriggerBot.h"
@@ -70,6 +71,7 @@
 #include "Modules/Visual/Radar.h"
 #include "Modules/Visual/Zoom.h"
 #include "Modules/Visual/Xray.h"
+#include "Modules/Visual/HoleEsp.h"
 #include "Modules/Visual/CityESP.h"
 #include "Modules/Visual/ESP.h"
 

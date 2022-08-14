@@ -275,6 +275,7 @@
     <ClCompile Include="PacketClient\Module\Modules\Combat\Dupe.cpp" />
     <ClCompile Include="PacketClient\Module\Modules\Combat\FightBot.cpp" />
     <ClCompile Include="PacketClient\Module\Modules\Combat\FuckHead.cpp" />
+    <ClCompile Include="PacketClient\Module\Modules\Combat\PacketPlace.cpp" />
     <ClCompile Include="PacketClient\Module\Modules\Combat\PistonAura.cpp" />
     <ClCompile Include="PacketClient\Module\Modules\Combat\PistonCompass.cpp" />
     <ClCompile Include="PacketClient\Module\Modules\Combat\SelfTrap.cpp" />
@@ -304,6 +305,7 @@
     <ClCompile Include="PacketClient\Module\Modules\Player\AutoArmor.cpp" />
     <ClCompile Include="PacketClient\Module\Modules\Player\Freecam.cpp" />
     <ClCompile Include="PacketClient\Module\Modules\Visual\CityESP.cpp" />
+    <ClCompile Include="PacketClient\Module\Modules\Visual\HoleEsp.cpp" />
     <ClCompile Include="PacketClient\Notifications\NotificationManager.cpp" />
     <ClCompile Include="Utils\ColorUtil.cpp" />
     <ClCompile Include="Utils\DrawUtils.cpp" />
@@ -509,6 +511,7 @@
     <ClInclude Include="PacketClient\Module\Modules\Combat\Dupe.h" />
     <ClInclude Include="PacketClient\Module\Modules\Combat\Fightbot.h" />
     <ClInclude Include="PacketClient\Module\Modules\Combat\FuckHead.h" />
+    <ClInclude Include="PacketClient\Module\Modules\Combat\PacketPlace.h" />
     <ClInclude Include="PacketClient\Module\Modules\Combat\PistonAura.h" />
     <ClInclude Include="PacketClient\Module\Modules\Combat\PistonCompass.h" />
     <ClInclude Include="PacketClient\Module\Modules\Combat\SelfTrap.h" />
@@ -538,6 +541,7 @@
     <ClInclude Include="PacketClient\Module\Modules\Other\Verify.h" />
     <ClInclude Include="PacketClient\Module\Modules\Player\AutoArmor.h" />
     <ClInclude Include="PacketClient\Module\Modules\Visual\CityESP.h" />
+    <ClInclude Include="PacketClient\Module\Modules\Visual\HoleEsp.h" />
     <ClInclude Include="PacketClient\Notifications\NotificationManager.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Utils\ColorUtil.h" />

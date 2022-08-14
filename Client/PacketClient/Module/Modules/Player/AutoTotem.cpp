@@ -10,7 +10,7 @@ AutoTotem::~AutoTotem() {
 }
 
 const char* AutoTotem::getModuleName() {
-	return ("自动图腾");
+	return ("AutoTotem");
 }
 const char* AutoTotem::getModName() {
 	if (Mode.selected == 0) {

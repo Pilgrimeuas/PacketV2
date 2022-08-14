@@ -63,6 +63,16 @@ DWORD WINAPI keyThread(LPVOID lpParam) {
 	C_HIDController** hidController = g_Data.getHIDController();
 	static auto killauraMod = moduleMgr->getModule<Killaura>();
 	static auto fMod = moduleMgr->getModule<Criticals>();
+	static auto configManager = moduleMgr->getModule<ConfigManagerMod>();
+	static auto notificationsMod = moduleMgr->getModule<Notifications>();
+	static auto clickGUIMod = moduleMgr->getModule<ClickGUIMod>();
+
+	// HudEditor stuff
+	static auto interfaceMod = moduleMgr->getModule<Interface>();
+	static auto playerList = moduleMgr->getModule<PlayerList>();
+	static auto arraylist = moduleMgr->getModule<ArrayList>();
+	static auto watermark = moduleMgr->getModule<Watermark>();
+	static auto timeChanger = moduleMgr->getModule<Ambience>();
 	while (isRunning) {
 		if ((GameData::isKeyDown('L') && GameData::isKeyDown(VK_CONTROL)) || GameData::shouldTerminate()) {  // Press L to uninject
 			isRunning = false;
@@ -93,7 +103,7 @@ DWORD WINAPI keyThread(LPVOID lpParam) {
 	Sleep(10);  // Give the threads a bit of time to exit
 
 	FreeLibraryAndExitThread(static_cast<HMODULE>(lpParam), 1);  // Uninject
-}
+	}
 
 #ifndef _MSC_VER
 #define _MSC_VER "unk"

@@ -25,6 +25,7 @@ void ModuleManager::initModules() {
 
 		// Combat
 		moduleList.push_back(std::shared_ptr<IModule>(new AutoClicker()));
+		moduleList.push_back(std::shared_ptr<IModule>(new PacketPlace()));
 		moduleList.push_back(std::shared_ptr<IModule>(new AutoCity()));
 		moduleList.push_back(std::shared_ptr<IModule>(new FuckHead()));
 		moduleList.push_back(std::shared_ptr<IModule>(new FightBot()));
@@ -67,6 +68,7 @@ void ModuleManager::initModules() {
 		moduleList.push_back(std::shared_ptr<IModule>(new PlayerList()));
 		moduleList.push_back(std::shared_ptr<IModule>(new ArrayList()));
 		moduleList.push_back(std::shared_ptr<IModule>(new CustomSky()));
+		moduleList.push_back(std::shared_ptr<IModule>(new HoleESP()));
 		moduleList.push_back(std::shared_ptr<IModule>(new Interface()));
 		moduleList.push_back(std::shared_ptr<IModule>(new TargetHUD()));
 		moduleList.push_back(std::shared_ptr<IModule>(new Watermark()));
