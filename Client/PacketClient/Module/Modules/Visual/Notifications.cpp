@@ -8,5 +8,5 @@ Notifications::Notifications() : IModule(0, Category::VISUAL, "Displays notifica
 }
 
 const char* Notifications::getModuleName() {
-	return ("播报");
+	return ("Notifications");
 }

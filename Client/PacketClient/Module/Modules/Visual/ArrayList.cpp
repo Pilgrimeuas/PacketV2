@@ -21,7 +21,7 @@ ArrayList::ArrayList() : IModule(0, Category::VISUAL, "Displays enabled modules"
 }
 
 const char* ArrayList::getModuleName() {
-	return ("功能列表");
+	return ("ArrayList");
 }
 
 #pragma region IModuleContainer

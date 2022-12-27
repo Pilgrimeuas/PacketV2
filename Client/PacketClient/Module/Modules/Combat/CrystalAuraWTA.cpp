@@ -17,7 +17,7 @@ CrystalAuraWTA::~CrystalAuraWTA() {
 }
 
 const char* CrystalAuraWTA::getModuleName() {
-	return ("自动水晶wta");
+	return ("CrystalAurawta");
 }
 static std::vector<C_Entity*> targetList7;
 
@@ -208,9 +208,7 @@ std::vector<vec3_t*> hitArr;
 void CrystalAuraWTA::onTick(C_GameMode* gm) {
 	if (g_Data.getLocalPlayer() == nullptr) return;
 	if (isClick && !g_Data.isRightClickDown()) return;
-
-	if (g_Data.getLocalPlayer()->getSelectedItemId() == 259) return;
-	if (g_Data.getLocalPlayer()->getSupplies()->inventory->getItemStack(g_Data.getLocalPlayer()->getSupplies()->selectedHotbarSlot)->getItem()->isFood() && g_Data.isRightClickDown()) return;
+	if (g_Data.getLocalPlayer()->getSelectedItemId() == 259 && GameData::isRightClickDown()) return;
 
 	targetList7.clear();
 

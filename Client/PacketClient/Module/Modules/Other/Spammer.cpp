@@ -8,7 +8,7 @@ Spammer::Spammer() : IModule(0, Category::OTHER, "Spams a message in a specified
 }
 
 const char* Spammer::getModuleName() {
-	return ("刷屏");
+	return ("Spammer");
 }
 
 void Spammer::onTick(C_GameMode* gm) {

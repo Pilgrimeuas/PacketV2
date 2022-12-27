@@ -13,12 +13,12 @@ Regen::Regen() : IModule(0, Category::COMBAT, "Regenerates your health") {
 }
 
 const char* Regen::getRawModuleName() {
-	return "红石回血";
+	return "Regen";
 }
 
 const char* Regen::getModuleName() {
-	if (mode.getSelectedValue() == 0) name = string("回血 ") + string(GRAY) + string("Vanilla");
-	if (mode.getSelectedValue() == 1) name = string("回血 ") + string(GRAY) + string("Hive");
+	if (mode.getSelectedValue() == 0) name = string("Regen ") + string(GRAY) + string("Vanilla");
+	if (mode.getSelectedValue() == 1) name = string("Regen ") + string(GRAY) + string("Hive");
 	return name.c_str();
 }
 

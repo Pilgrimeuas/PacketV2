@@ -15,7 +15,7 @@ Criticals::Criticals() : IModule(0, Category::COMBAT, "Makes every hit a critica
 }
 
 const char* Criticals::getRawModuleName() {
-	return "刀爆";
+	return "Criticals";
 }
 
 const char* Criticals::getModuleName() {
@@ -37,8 +37,8 @@ void findEntity_Criticals(C_Entity* currentEntity, bool isRegularEntity) {
 	if (currentEntity == g_Data.getLocalPlayer())
 		return;
 
-	if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
-		return;
+	//if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
+		//return;
 
 	if (!g_Data.getLocalPlayer()->isAlive())
 		return;

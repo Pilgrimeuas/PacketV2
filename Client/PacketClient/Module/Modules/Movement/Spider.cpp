@@ -7,7 +7,7 @@ Spider::Spider() : IModule(0, Category::MOVEMENT, "Allows you to climb walls") {
 }
 
 const char* Spider::getModuleName() {
-	return "爬墙";
+	return "Spider";
 }
 
 void Spider::onMove(C_MoveInputHandler* input) {

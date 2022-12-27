@@ -8,11 +8,11 @@ AutoPot::AutoPot() : IModule(0, Category::COMBAT, "Throws potions for you") {
 }
 
 const char* AutoPot::getRawModuleName() {
-	return "自动丢瓶";
+	return "AutoPot";
 }
 
 const char* AutoPot::getModuleName() {
-	name = string("自动丢瓶 ") + string(GRAY) + to_string((int)health);
+	name = string("AutoPot ") + string(GRAY) + to_string((int)health);
 	return name.c_str();
 }
 

@@ -8,11 +8,11 @@ Velocity::Velocity() : IModule(0, Category::MOVEMENT, "Modifies your velocity (k
 }
 
 const char* Velocity::getRawModuleName() {
-	return "无击退";
+	return "Velocity";
 }
 
 const char* Velocity::getModuleName() {
-	name = string("无击退 ") + string(GRAY) + to_string((int)x) + string(".") + to_string((int)(x * 10) - ((int)x * 10));
+	name = string("Velocity ") + string(GRAY) + to_string((int)x) + string(".") + to_string((int)(x * 10) - ((int)x * 10));
 	fullname = name + string("% ") + to_string((int)y) + string(".") + to_string((int)(y * 10) - ((int)y * 10)) + string("%");
 	return fullname.c_str();
 }

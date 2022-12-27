@@ -10,7 +10,7 @@ ESP::ESP() : IModule(0, Category::VISUAL, "Outlines players") {
 }
 
 const char* ESP::getModuleName() {
-	return "方框透视";
+	return "ESP";
 }
 
 void doRenderStuff(C_Entity* ent, bool isRegularEntitie) {
@@ -27,8 +27,8 @@ void doRenderStuff(C_Entity* ent, bool isRegularEntitie) {
 		if (ent->isInvisible())
 			return;
 
-		if (!g_Data.getLocalPlayer()->canAttack(ent, false))
-			return;
+		//if (!g_Data.getLocalPlayer()->canAttack(ent, false))
+			//return;
 		DrawUtils::setColor(0.2f, 0.2f, 0.9f, (float)fmax(0.1f, (float)fmin(1.f, 15 / (ent->damageTime + 1))));
 	}
 	else return;

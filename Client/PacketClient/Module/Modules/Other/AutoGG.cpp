@@ -7,11 +7,11 @@ AutoGG::AutoGG() : IModule(0, Category::OTHER, "Automatically says GG on game en
 }
 
 const char* AutoGG::getRawModuleName() {
-	return "自动GG";
+	return "AutoGGGG";
 }
 
 const char* AutoGG::getModuleName() {
-	if (server.getSelectedValue() == 0) name = string("自动GG ") + string(GRAY) + string("Hive");
+	if (server.getSelectedValue() == 0) name = string("AutoGGGG ") + string(GRAY) + string("Hive");
 	return name.c_str();
 }
 

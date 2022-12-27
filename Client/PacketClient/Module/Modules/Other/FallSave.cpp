@@ -9,7 +9,7 @@ FallSave::FallSave() : IModule(0, Category::OTHER, "Save yourself from falling!"
 }
 
 const char* FallSave::getModuleName() {
-	return "跌落回弹";
+	return "FallSave";
 }
 
 void FallSave::onDisable() {

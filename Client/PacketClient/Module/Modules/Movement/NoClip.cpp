@@ -10,7 +10,7 @@ NoClip::~NoClip() {
 }
 
 const char* NoClip::getModuleName() {
-	return ("穿墙飞行");
+	return ("NoClip");
 }
 
 void NoClip::onTick(C_GameMode* gm) {

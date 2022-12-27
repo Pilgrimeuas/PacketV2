@@ -9,7 +9,7 @@ HitBoxes::HitBoxes() : IModule(0, Category::COMBAT, "Increase an entitys HitBoxe
 }
 
 const char* HitBoxes::getRawModuleName() {
-	return "扩大碰撞箱";
+	return "HitBox";
 }
 
 const char* HitBoxes::getModuleName() {

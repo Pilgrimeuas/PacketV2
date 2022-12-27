@@ -9,5 +9,5 @@ CustomSky::CustomSky() : IModule(0, Category::VISUAL, "Customize the skys color"
 }
 
 const char* CustomSky::getModuleName() {
-	return "彩色天空";
+	return "CustomSky";
 }

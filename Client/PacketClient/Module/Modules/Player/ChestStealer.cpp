@@ -10,11 +10,11 @@ ChestStealer::ChestStealer() : IModule(0, Category::PLAYER, "Takes/Dumps items f
 }
 
 const char* ChestStealer::getRawModuleName() {
-	return "快速拿箱";
+	return "ChestStealer";
 }
 
 const char* ChestStealer::getModuleName() {
-	name = string("快速拿箱 ") + string(GRAY) + to_string((int)setDelay);
+	name = string("ChestStealer ") + string(GRAY) + to_string((int)setDelay);
 	return name.c_str();
 }
 

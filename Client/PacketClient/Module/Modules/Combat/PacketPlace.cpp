@@ -9,7 +9,7 @@ PacketPlace::PacketPlace() : IModule(0, Category::COMBAT, "Automatically clicks 
 }
 
 const char* PacketPlace::getModuleName() {
-	return ("金苹果放置");
+	return ("PacketPlace");
 }
 bool PacketPlace::getobSpoof4() {
 	__int64 id = *g_Data.getLocalPlayer()->getUniqueId();

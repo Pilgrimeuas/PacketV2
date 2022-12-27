@@ -7,7 +7,7 @@ ChatSuffix::~ChatSuffix() {
 
 
 const char* ChatSuffix::getModuleName() {
-	return "聊天后缀";
+	return "ChatSuffix";
 }
 void ChatSuffix::onSendPacket(C_Packet* packet) {
 	if (packet->isInstanceOf<C_TextPacket>()) {

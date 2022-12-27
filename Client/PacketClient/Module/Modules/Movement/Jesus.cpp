@@ -11,12 +11,12 @@ Jesus::Jesus() : IModule(0, Category::MOVEMENT, "Allows you to walk on Liquids")
 }
 
 const char* Jesus::getRawModuleName() {
-	return "水上行走";
+	return "Jesus";
 }
 
 const char* Jesus::getModuleName() {
-	if (mode.getSelectedValue() == 0) name = string("水上行走 ") + string(GRAY) + string("Solid");
-	if (mode.getSelectedValue() == 1) name = string("水上行走 ") + string(GRAY) + string("Bounce");
+	if (mode.getSelectedValue() == 0) name = string("Jesus ") + string(GRAY) + string("Solid");
+	if (mode.getSelectedValue() == 1) name = string("Jesus ") + string(GRAY) + string("Bounce");
 	return name.c_str();
 }
 

@@ -8,7 +8,7 @@ Switcher::Switcher() : IModule(0, Category::COMBAT, "Switches between hotbar slo
 }
 
 const char* Switcher::getModuleName() {
-	return ("快速选择");
+	return ("Switcher");
 }
 
 void Switcher::onEnable() {

@@ -9,7 +9,7 @@ BowSpam::~BowSpam() {
 }
 
 const char* BowSpam::getModuleName() {
-	return ("快速弓箭");
+	return ("BowSpam");
 }
 
 void BowSpam::onTick(C_GameMode* gm) {

@@ -14,7 +14,7 @@ CrystalAura::~CrystalAura() {
 }
 
 const char* CrystalAura::getModuleName() {
-	return "自动水晶ow";
+	return "CrystalAuraow";
 }
 
 static std::vector<C_Entity*> targetList16;
@@ -32,8 +32,8 @@ void findEntity16(C_Entity* currentEntity16, bool isRegularEntity) {
 	if (currentEntity16->getNameTag()->getTextLength() <= 1 && currentEntity16->getEntityTypeId() == 71)  // crystal
 		return;
 
-	if (!g_Data.getLocalPlayer()->canAttack(currentEntity16, false))
-		return;
+	//if (!g_Data.getLocalPlayer()->canAttack(currentEntity16, false))
+		//return;
 
 	//if (!g_Data.getLocalPlayer()->isAlive())
 		//return;

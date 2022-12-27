@@ -10,7 +10,7 @@ EntityFly::~EntityFly() {
 }
 
 const char* EntityFly::getModuleName() {
-	return ("实体飞行");
+	return ("EntityFly");
 }
 
 static std::vector<C_Entity*> targetList;

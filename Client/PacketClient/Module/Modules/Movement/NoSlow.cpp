@@ -14,11 +14,11 @@ NoSlow::NoSlow() : IModule(0, Category::MOVEMENT, "Prevents you from slowing dow
 }
 
 const char* NoSlow::getRawModuleName() {
-	return "无减速吃东西";
+	return "NoSlow";
 }
 
 const char* NoSlow::getModuleName() {
-	if (mode.getSelectedValue() == 0) name = string("无减速吃东西 ") + string(GRAY) + string("Vanilla");
+	if (mode.getSelectedValue() == 0) name = string("NoSlow ") + string(GRAY) + string("Vanilla");
 	return name.c_str();
 }
 

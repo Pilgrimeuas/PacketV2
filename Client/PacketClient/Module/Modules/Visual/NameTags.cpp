@@ -8,7 +8,7 @@ NameTags::NameTags() : IModule(0, Category::VISUAL, "Displays peoples names thro
 }
 
 const char* NameTags::getModuleName() {
-	return ("名字显示");
+	return ("NameTags");
 }
 
 void drawNameTags(C_Entity* ent, bool) {

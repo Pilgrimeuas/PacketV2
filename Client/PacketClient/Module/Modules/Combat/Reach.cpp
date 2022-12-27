@@ -10,7 +10,7 @@ Reach::Reach() : IModule(0, Category::COMBAT, "Increases your reach") {
 }
 
 const char* Reach::getModuleName() {
-	return ("长臂猿");
+	return ("Reach");
 }
 
 void Reach::onTick(C_GameMode* gm) {

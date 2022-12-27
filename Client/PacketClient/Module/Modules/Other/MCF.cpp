@@ -5,7 +5,7 @@ using namespace std;
 MCF::MCF() : IModule(0, Category::OTHER, "Middle Click add/remove Friends") {
 }
 const char* MCF::getModuleName() {
-	return "好友添加";
+	return "MCF";
 }
 
 void MCF::onTick(C_GameMode* gm) {

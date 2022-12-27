@@ -8,7 +8,7 @@ AutoGapple::~AutoGapple() {
 }
 
 const char* AutoGapple::getModuleName() {
-	return ("自动金苹果");
+	return ("AutoGapple");
 }
 
 void AutoGapple::onTick(C_GameMode* gm) {

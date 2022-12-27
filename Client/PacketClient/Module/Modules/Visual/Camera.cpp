@@ -9,7 +9,7 @@ Camera::Camera() : IModule(0, Category::VISUAL, "Mofie ur cam e") {
 }
 
 const char* Camera::getModuleName() {
-	return "亮度和取消伤害动作";
+	return "Camera";
 }
 
 float originalGamma = -1;

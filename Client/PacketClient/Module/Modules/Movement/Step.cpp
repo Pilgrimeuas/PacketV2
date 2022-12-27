@@ -11,13 +11,13 @@ Step::Step() : IModule(0, Category::MOVEMENT, "Increases your step height") {
 }
 
 const char* Step::getRawModuleName() {
-	return "高速爬墙";
+	return "Step";
 }
 
 const char* Step::getModuleName() {
-	if (mode.getSelectedValue() == 0) name = string("高速爬墙 ") + string(GRAY) + to_string((int)height) + string(".") + to_string((int)(height * 10) - ((int)height * 10));
+	if (mode.getSelectedValue() == 0) name = string("Step ") + string(GRAY) + to_string((int)height) + string(".") + to_string((int)(height * 10) - ((int)height * 10));
 	if (mode.getSelectedValue() == 1) {
-		if (reverse) name = string("高速爬墙 ") + string(GRAY) + string("Reverse");
+		if (reverse) name = string("Step ") + string(GRAY) + string("Reverse");
 		else return "Step";
 	}
 	return name.c_str();

@@ -16,7 +16,7 @@ SelfTrap::~SelfTrap() {
 }
 
 const char* SelfTrap::getModuleName() {
-	return ("围住我自己");
+	return ("SelfTrap");
 }
 bool SelfTrap::isHoldMode() {
 	return hold;
@@ -105,11 +105,11 @@ void SelfTrap::onTick(C_GameMode* gm) {
 		return;
 	vec3_t EZ;
 	EZ = g_Data.getLocalPlayer()->eyePos0;  // Block below the player
-	upper = EZ.add(-1, 1, 0);
-	b1 = EZ.add(0, -1, 0);
-	b2 = EZ.add(-2, -1, 0);
-	b3 = EZ.add(-1, -1, 1);
-	b4 = EZ.add(-1, -1, -1);
+	upper = EZ.add(-2, 1, 0);
+	b1 = EZ.add(-1, -1, 0);
+	b2 = EZ.add(-3, -1, 0);
+	b3 = EZ.add(-2, -1, 1);
+	b4 = EZ.add(-2, -1, -1);
 	if (switch2obby)
 		getobSpoof();
 	else if (ec)

@@ -10,7 +10,6 @@ private:
 	int gsdelay = 3;
 	int breakdelay = 2;
 	bool airplace = true;
-	bool spoof = false;
 
 	bool hasDetonated = false;
 	bool hasPlacedAnchor = false;
@@ -46,7 +45,5 @@ public:
 	virtual void onTick(C_GameMode* gm) override;
 	virtual void onPreRender(C_MinecraftUIRenderContext* renderCtx) override;
 	virtual void onEnable() override;
-	bool anchorspoof();
-	bool gsspoof();
 	virtual void onDisable() override;
 };

@@ -8,12 +8,12 @@ DeathEffects::DeathEffects() : IModule(0, Category::OTHER, "Renders an effect wh
 }
 
 const char* DeathEffects::getRawModuleName() {
-	return "死亡特效";
+	return "DeathEffects";
 }
 
 const char* DeathEffects::getModuleName() {
-	if (mode.getSelectedValue() == 0) name = string("死亡特效 ") + string(GRAY) + string("Lightning");
-	if (mode.getSelectedValue() == 1) name = string("死亡特效 ") + string(GRAY) + string("Explosion");
+	if (mode.getSelectedValue() == 0) name = string("DeathEffects ") + string(GRAY) + string("Lightning");
+	if (mode.getSelectedValue() == 1) name = string("DeathEffects ") + string(GRAY) + string("Explosion");
 	return name.c_str();
 }
 
@@ -26,8 +26,8 @@ void findEntityDeathEffects(C_Entity* currentEntity, bool isRegularEntity) {
 	if (currentEntity == g_Data.getLocalPlayer())
 		return;
 
-	if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
-		return;
+	//if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
+		//return;
 
 	if (!g_Data.getLocalPlayer()->isAlive())
 		return;

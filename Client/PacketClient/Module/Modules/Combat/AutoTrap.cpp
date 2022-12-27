@@ -18,7 +18,7 @@ AutoTrap::~AutoTrap() {
 }
 
 const char* AutoTrap::getModuleName() {
-	return ("围人");
+	return ("AutoTrap");
 }
 
 void getObbyAT() {
@@ -65,8 +65,8 @@ void findEntity15(C_Entity* currentEntity15, bool isRegularEntity) {
 	if (currentEntity15 == g_Data.getLocalPlayer())  // Skip Local player
 		return;
 
-	if (!g_Data.getLocalPlayer()->canAttack(currentEntity15, false))
-		return;
+	//if (!g_Data.getLocalPlayer()->canAttack(currentEntity15, false))
+		//return;
 
 	if (!g_Data.getLocalPlayer()->isAlive())
 		return;

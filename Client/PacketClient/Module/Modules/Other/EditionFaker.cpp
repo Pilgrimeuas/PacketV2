@@ -30,5 +30,5 @@ int EditionFaker::getFakedEditon() {
 }
 
 const char* EditionFaker::getModuleName() {
-	return ("设备欺骗");
+	return ("EditionFaker");
 }

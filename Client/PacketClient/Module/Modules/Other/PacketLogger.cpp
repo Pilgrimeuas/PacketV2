@@ -5,7 +5,7 @@ PacketLogger::PacketLogger() : IModule(0, Category::OTHER, "Packet Logging") {
 }
 
 const char* PacketLogger::getModuleName() {
-	return ("发包记录");
+	return ("PacketLogger");
 }
 
 void PacketLogger::onSendPacket(C_Packet* packet) {

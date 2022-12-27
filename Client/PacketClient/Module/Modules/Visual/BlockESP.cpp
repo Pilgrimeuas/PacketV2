@@ -14,7 +14,7 @@ BlockESP::BlockESP() : IModule(0, Category::VISUAL, "Outlines Blocks") {
 }
 
 const char* BlockESP::getModuleName() {
-	return ("矿物透视");
+	return ("BlockESP");
 }
 
 void BlockESP::onPreRender(C_MinecraftUIRenderContext* renderCtx) {

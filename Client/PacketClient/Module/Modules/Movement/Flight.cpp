@@ -23,11 +23,11 @@ Flight::Flight() : IModule(0, Category::MOVEMENT, "Allows you to fly") {
 }
 
 const char* Flight::getRawModuleName() {
-	return "飞行";
+	return "Flight";
 }
 
 const char* Flight::getModuleName() {
-	name = string("飞行 ") + string(GRAY) + mode.GetEntry(mode.getSelectedValue()).GetName();
+	name = string("Flight ") + string(GRAY) + mode.GetEntry(mode.getSelectedValue()).GetName();
 	return name.c_str();
 }
 

@@ -22,11 +22,11 @@ AutoPlay::AutoPlay() : IModule(0, Category::COMBAT, "Plays the game for you") {
 }
 
 const char* AutoPlay::getRawModuleName() {
-	return "自动游玩";
+	return "AutoPlay";
 }
 
 const char* AutoPlay::getModuleName() {
-	return "自动游玩";
+	return "AutoPlay";
 }
 
 bool checkVoid(C_Entity* ent) {
@@ -53,8 +53,8 @@ void findPathEntity(C_Entity* currentEntity, bool isRegularEntity) {
 	if (currentEntity == g_Data.getLocalPlayer())
 		return;
 
-	if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
-		return;
+	//if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
+		//return;
 
 	if (!g_Data.getLocalPlayer()->isAlive())
 		return;

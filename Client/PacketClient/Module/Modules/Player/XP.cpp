@@ -7,7 +7,7 @@ XP::XP() : IModule(0, Category::PLAYER, "Gives you experience levels") {
 }
 
 const char* XP::getModuleName() {
-	return "经验";
+	return "XP";
 }
 
 void XP::onTick(C_GameMode* gm) {

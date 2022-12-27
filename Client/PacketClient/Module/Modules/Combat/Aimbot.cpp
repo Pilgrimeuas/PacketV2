@@ -12,7 +12,7 @@ Aimbot::Aimbot() : IModule(0, Category::COMBAT, "Automatically aims at the neare
 }
 
 const char* Aimbot::getModuleName() {
-	return ("自瞄");
+	return ("Aimbot");
 }
 
 static vector<C_Entity*> targetList;
@@ -25,8 +25,8 @@ void findEntity_Aimbot(C_Entity* currentEntity, bool isRegularEntity) {
 	if (currentEntity == g_Data.getLocalPlayer())
 		return;
 
-	if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
-		return;
+	//if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
+		//return;
 
 	if (!g_Data.getLocalPlayer()->isAlive())
 		return;

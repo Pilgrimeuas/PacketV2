@@ -24,7 +24,7 @@ CityESP::~CityESP() {
 }
 
 const char* CityESP::getModuleName() {
-	return ("CITY透视");
+	return ("CityESP");
 }
 
 static std::vector<C_Entity*> guyzz;

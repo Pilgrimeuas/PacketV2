@@ -5,7 +5,7 @@ InvMove::InvMove() : IModule(0, Category::MOVEMENT, "Move while in your Inv/Ches
 }
 
 const char* InvMove::getModuleName() {
-	return ("打开背包移动");
+	return ("InvMove");
 }
 
 void InvMove::onTick(C_GameMode* gm) {

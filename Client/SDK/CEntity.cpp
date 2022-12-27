@@ -1,6 +1,7 @@
 #include "CEntity.h"
 #include "../Memory/GameData.h"
 #include "../Utils/Utils.h"
+#include <excpt.h>
 
 C_InventoryTransactionManager* C_Entity::getTransactionManager() {
 	static unsigned int offset = 0x1210;
@@ -38,6 +39,15 @@ bool PointingStruct::hasEntity() {
 
 float C_Entity::getBlocksPerSecond() {
 	return getTicksPerSecond() * *g_Data.getClientInstance()->minecraft->timer;
+}
+bool C_Entity::checkNameTagFuncO() {
+	__try {
+		return this->getNameTag() != nullptr;
+	}
+	__except (EXCEPTION_EXECUTE_HANDLER) {
+		return
+			false;
+	}
 }
 
 C_Entity* PointingStruct::getEntity() {

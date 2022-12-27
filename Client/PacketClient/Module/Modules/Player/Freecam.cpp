@@ -8,7 +8,7 @@ Freecam::~Freecam() {
 }
 
 const char* Freecam::getModuleName() {
-	return ("自由移动视角");
+	return ("Freecam");
 }
 
 void Freecam::onTick(C_GameMode* gm) {

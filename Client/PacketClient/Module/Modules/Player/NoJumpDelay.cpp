@@ -9,7 +9,7 @@ NoJumpDelay::NoJumpDelay() : IModule(0, Category::PLAYER, "Changes the delay bet
 }
 
 const char* NoJumpDelay::getModuleName() {
-	return "取消跳跃延迟";
+	return "NoJumpDelay";
 }
 
 void NoJumpDelay::onTick(C_GameMode* gm) {

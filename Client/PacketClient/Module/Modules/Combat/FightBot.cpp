@@ -16,7 +16,7 @@ FightBot::~FightBot() {
 }
 
 const char* FightBot::getModuleName() {
-	return "目标追踪";
+	return "FightBot";
 }
 
 struct CompareTargetEnArray {
@@ -37,8 +37,8 @@ void findadEntity(C_Entity* currentEntity, bool isRegularEntity) {
 	if (currentEntity == g_Data.getLocalPlayer())  // Skip Local player
 		return;
 
-	if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
-		return;
+	//if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
+		//return;
 
 	if (!g_Data.getLocalPlayer()->isAlive())
 		return;

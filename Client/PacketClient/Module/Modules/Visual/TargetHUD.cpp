@@ -14,7 +14,7 @@ TargetHUD::TargetHUD() : IModule(0, Category::VISUAL, "Displays information abou
 	registerIntSetting("Opacity", &opacity, opacity, 0, 255);
 }
 
-const char* TargetHUD::getModuleName() { return ("目标信息显示"); }
+const char* TargetHUD::getModuleName() { return ("TargetHUD"); }
 
 #pragma region TargetList
 static bool entityChanged = false;
@@ -22,7 +22,7 @@ static vector<C_Entity*> targetList;
 void findPlayers_TargetHUD(C_Entity* currentEntity, bool isRegularEntity) {
 	if (currentEntity == nullptr) return;
 	if (currentEntity == g_Data.getLocalPlayer()) return;
-	if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false)) return;
+	//if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false)) return;
 	if (!g_Data.getLocalPlayer()->isAlive()) return;
 	if (!currentEntity->isAlive()) return;
 	if (currentEntity->getEntityTypeId() != 319) return;

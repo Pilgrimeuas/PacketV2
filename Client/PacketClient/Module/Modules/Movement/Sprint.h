@@ -6,10 +6,10 @@
 class Sprint : public IModule {
 public:
 	bool useSprint = true;
-	Sprint() : IModule(0, Category::MOVEMENT, "自动疾跑") {
+	Sprint() : IModule(0, Category::MOVEMENT, "Sprint") {
 	}
 
-	virtual const char* getModuleName() { return "自动疾跑"; }
+	virtual const char* getModuleName() { return "Sprint"; }
 
 	void onTick(C_GameMode* gm) {
 		auto player = g_Data.getLocalPlayer();

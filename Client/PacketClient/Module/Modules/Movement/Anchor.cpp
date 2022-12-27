@@ -9,7 +9,7 @@ Anchor::~Anchor() {
 }
 
 const char* Anchor::getModuleName() {
-	return ("快速下落");
+	return ("Anchor");
 }
 void Anchor::onTick(C_GameMode* gm) {
 	vec3_ti bestPos;

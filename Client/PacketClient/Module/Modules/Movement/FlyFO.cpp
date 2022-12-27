@@ -18,7 +18,7 @@ FlyFO::~FlyFO() {
 }
 
 const char* FlyFO::getModuleName() {
-	return "ORG飞行";
+	return "FlyFO";
 }
 
 void FlyFO::onEnable() {

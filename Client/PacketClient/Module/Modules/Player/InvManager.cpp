@@ -44,11 +44,11 @@ InvManager::InvManager() : IModule(0, Category::PLAYER, "Manages your inventory"
 	registerIntSetting("Delay", &delay, delay, 0, 30);
 }
 const char* InvManager::getRawModuleName() {
-	return "背包管理";
+	return "InvManager";
 }
 
 const char* InvManager::getModuleName() {
-	name = string("背包管理 ") + string(GRAY) + to_string((int)delay);
+	name = string("InvManager ") + string(GRAY) + to_string((int)delay);
 	return name.c_str();
 }
 

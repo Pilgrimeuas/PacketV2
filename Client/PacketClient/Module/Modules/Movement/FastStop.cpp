@@ -5,7 +5,7 @@ FastStop::FastStop() : IModule(0, Category::MOVEMENT, "Stops fast yes") {
 }
 
 const char* FastStop::getModuleName() {
-	return ("奔跑速停");
+	return ("FastStop");
 }
 
 void FastStop::onMove(C_MoveInputHandler* input) {

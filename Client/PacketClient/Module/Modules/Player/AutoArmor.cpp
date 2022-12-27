@@ -37,7 +37,7 @@ AutoArmor::~AutoArmor() {
 }
 
 const char* AutoArmor::getModuleName() {
-	return ("自动装甲");
+	return ("AutoArmor");
 }
 
 void AutoArmor::onTick(C_GameMode* gm) {

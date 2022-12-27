@@ -13,7 +13,7 @@ BurrowWTF::BurrowWTF() : IModule(VK_NUMPAD0, Category::COMBAT, "BurrowWTF BY DIM
 BurrowWTF::~BurrowWTF() {
 }
 const char* BurrowWTF::getModuleName() {
-	return ("防止炸头");
+	return ("BurrowWTF");
 }
 void getOb() {
 	auto supplies = g_Data.getLocalPlayer()->getSupplies();

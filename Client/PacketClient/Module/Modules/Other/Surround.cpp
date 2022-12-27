@@ -50,7 +50,7 @@ Surround::~Surround() {
 }
 
 const char* Surround::getModuleName() {
-	return "鬼手围脚";
+	return "Surround";
 }
 
 vec3_t getCenter(double posX, double posY, double posZ) {

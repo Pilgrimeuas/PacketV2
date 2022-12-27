@@ -55,7 +55,7 @@ CrystalPlace::CrystalPlace() : IModule(0, Category::COMBAT, "p100 java CA by Joh
 CrystalPlace::~CrystalPlace() {};
 
 const char* CrystalPlace::getModuleName() {
-	return ("水晶光环b");
+	return ("CrystalPlaceJWTD");
 }
 
 void getCrystal() {
@@ -641,8 +641,7 @@ bool isPlayerAuthInput = false;
 void CrystalPlace::onTick(C_GameMode* gm) {
 	if (g_Data.getLocalPlayer() == nullptr || !g_Data.canUseMoveKeys() || (!isthereCrystalsInInventory() && switchType.GetSelectedEntry().GetValue() == 3))
 		return;
-	if (ReturnOnEat)
-		if (g_Data.getLocalPlayer()->getSupplies()->inventory->getItemStack(g_Data.getLocalPlayer()->getSupplies()->selectedHotbarSlot)->getItem()->isFood() && g_Data.isRightClickDown()) return;
+	if (g_Data.getLocalPlayer()->getSelectedItemId() == 259 && GameData::isRightClickDown()) return;
 	if (rotate.GetSelectedEntry().GetValue() == 3) {
 		if (moduleMgr->getModule<ADisabler>()->Server.selected != 0)
 			moduleMgr->getModule<ADisabler>()->Server.selected = 0;

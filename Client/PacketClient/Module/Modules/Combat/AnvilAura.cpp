@@ -11,7 +11,7 @@ AnvilAura::AnvilAura() : IModule(VK_NUMPAD0, Category::COMBAT, "Get black \"peop
 AnvilAura::~AnvilAura() {
 }
 const char* AnvilAura::getModuleName() {
-	return ("铁砧炸头");
+	return ("AnvilAura");
 }
 
 static std::vector<C_Entity*> targetList;

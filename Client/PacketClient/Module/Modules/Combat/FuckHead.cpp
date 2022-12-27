@@ -15,7 +15,7 @@ FuckHead::FuckHead() : IModule(VK_NUMPAD0, Category::COMBAT, "Fuckhead By Dimple
 FuckHead::~FuckHead() {
 }
 const char* FuckHead::getModuleName() {
-	return ("盖头");
+	return ("TrapHead");
 }
 
 static std::vector<C_Entity*> targetList;

@@ -10,7 +10,7 @@ BlockOutline::BlockOutline() : IModule(0, Category::VISUAL, "Outlines the block 
 }
 
 const char* BlockOutline::getModuleName() {
-	return ("方块选框");
+	return ("BlockOutline");
 }
 
 void BlockOutline::onPreRender(C_MinecraftUIRenderContext* renderCtx) {

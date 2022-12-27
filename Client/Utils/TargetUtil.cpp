@@ -1,5 +1,6 @@
 ﻿#include "TargetUtil.h"
 #include <regex>
+#include "../Memory/Hooks.h"
 
 C_LocalPlayer** localPlayer;
 
@@ -13,16 +14,14 @@ bool TargetUtil::isValidTarget(C_Entity* ent) {
 	static auto freecam = moduleMgr->getModule<Freecam>();
 	static auto antibot = moduleMgr->getModule<AntiBot>();
 	static auto teams = moduleMgr->getModule<Teams>();
-
-	if (ent == NULL) return false;
 	if (ent == g_Data.getLocalPlayer() && !freecam->isEnabled()) return false;
 	if (!ent->isAlive()) return false;
-	if (!(*localPlayer)->canAttack(ent, false)) return false;
-
+	//if (!(*localPlayer)->canAttack(ent, false)) return false;
 	if (antibot->isEnabled()) {
 		if (antibot->mode.getSelectedValue() == 0) {  // Basic
 			if (ent->getEntityTypeId() == 316) return false;
-
+			//if (!ent->checkNameTagFuncO())
+				//return false;
 			if (ent->isInvisible()) return false;
 
 			if (!hitBoxes->isEnabled()) if ((ent->height < 1.5f || ent->width < 0.49f || ent->height > 2.1f || ent->width > 0.9f)) return false;
@@ -30,7 +29,8 @@ bool TargetUtil::isValidTarget(C_Entity* ent) {
 			if (FriendList::findPlayer(ent->getNameTag()->getText())) return false;
 
 			if ((ent->isSilent() || ent->isImmobile() || ent->getNameTag()->getTextLength() < 2)) return false;
-		} else {  // Advanced
+		}
+		else {  // Advanced
 			if (ent->getEntityTypeId() == 316 && antibot->isEntityIdCheckEnabled()) return false;
 
 			if (!TargetUtil::containsOnlyASCII(ent->getNameTag()->getText()) && antibot->isNameCheckEnabled()) return false;

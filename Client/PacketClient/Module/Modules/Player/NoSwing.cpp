@@ -5,5 +5,5 @@ NoSwing::NoSwing() : IModule(0, Category::PLAYER, "Disable the swing animation")
 }
 
 const char* NoSwing::getModuleName() {
-	return ("取消摆手动作");
+	return ("NoSwing");
 }

@@ -11,7 +11,7 @@ TPAura::TPAura() : IModule(0, Category::COMBAT, "Attacks entities from far range
 }
 
 const char* TPAura::getModuleName() {
-	return ("TP光环");
+	return ("TPAura");
 }
 
 static vector<C_Entity*> targetList;
@@ -24,8 +24,8 @@ void findEntTPA(C_Entity* currentEntity, bool isRegularEntity) {
 	if (currentEntity == g_Data.getLocalPlayer())
 		return;
 
-	if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
-		return;
+	//if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
+		//return;
 
 	if (!g_Data.getLocalPlayer()->isAlive())
 		return;

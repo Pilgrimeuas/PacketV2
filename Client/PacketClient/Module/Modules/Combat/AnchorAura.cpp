@@ -7,13 +7,12 @@ AnchorAura::AnchorAura() : IModule(VK_NUMPAD0, Category::COMBAT, "Improved By Di
 	this->registerIntSetting("anchorDelay", &this->anchordelay, this->anchordelay, 0, 10);
 	this->registerIntSetting("gsDelay", &this->gsdelay, this->gsdelay, 0, 10);
 	this->registerIntSetting("Break delay", &this->breakdelay, this->breakdelay, 0, 10);
-	this->registerBoolSetting("AppleCan", &this->airplace, this->airplace);
-	this->registerBoolSetting("Spoof", &this->spoof, this->spoof);
+	this->registerBoolSetting("Mutil", &this->airplace, this->airplace);
 }
 AnchorAura::~AnchorAura() {
 }
 const char* AnchorAura::getModuleName() {
-	return ("重生锚炸头");
+	return ("AnchorAura");
 }
 
 static std::vector<C_Entity*> targetList;
@@ -44,50 +43,7 @@ bool Findentbyc(C_Entity* curEnt, bool isRegularEntity) {
 	}
 	return false;
 }
-bool AnchorAura::anchorspoof() {
-	__int64 id = *g_Data.getLocalPlayer()->getUniqueId();
-	C_PlayerInventoryProxy* supplies = g_Data.getLocalPlayer()->getSupplies();
-	C_Inventory* inv = supplies->inventory;
-	for (int n = 0; n < 9; n++) {
-		C_ItemStack* stack = inv->getItemStack(n);
-		if (stack->item != nullptr) {
-			if ((*stack->item)->itemId == -272) {
-				C_MobEquipmentPacket a(id, *stack, n, n);
-				g_Data.getClientInstance()->loopbackPacketSender->sendToServer(&a);
-				return true;
-			}
-		}
-	}
-	//C_MobEquipmentPacket a(id, *g_Data.getLocalPlayer()->getSelectedItem(), supplies->selectedHotbarSlot, supplies->selectedHotbarSlot);
-	//g_Data.getClientInstance()->loopbackPacketSender->sendToServer(&a);
-	return false;
-}
-bool AnchorAura::gsspoof() {
-	__int64 id = *g_Data.getLocalPlayer()->getUniqueId();
-	C_PlayerInventoryProxy* supplies = g_Data.getLocalPlayer()->getSupplies();
-	C_Inventory* inv = supplies->inventory;
-	for (int n = 0; n < 9; n++) {
-		C_ItemStack* stack = inv->getItemStack(n);
-		if (stack->item != nullptr) {
-			if ((*stack->item)->itemId == 89) {
-				C_MobEquipmentPacket a(id, *stack, n, n);
-				g_Data.getClientInstance()->loopbackPacketSender->sendToServer(&a);
-				return true;
-			}
-		}
-	}
-	//C_MobEquipmentPacket a(id, *g_Data.getLocalPlayer()->getSelectedItem(), supplies->selectedHotbarSlot, supplies->selectedHotbarSlot);
-	//g_Data.getClientInstance()->loopbackPacketSender->sendToServer(&a);
-	return false;
-}
-void stopSp() {
-	__int64 id = *g_Data.getLocalPlayer()->getUniqueId();
-	C_PlayerInventoryProxy* supplies = g_Data.getLocalPlayer()->getSupplies();
-	C_Inventory* inv = supplies->inventory;
-	C_MobEquipmentPacket a(id, *g_Data.getLocalPlayer()->getSelectedItem(), supplies->selectedHotbarSlot, supplies->selectedHotbarSlot);
-	g_Data.getClientInstance()->loopbackPacketSender->sendToServer(&a);
-	return;
-}
+
 bool placeBlok2(vec3_t blkPlacement) {
 	blkPlacement = blkPlacement.floor();
 
@@ -205,24 +161,6 @@ void AnchorAura::charge2(C_GameMode* gm, vec3_t* pos) {
 		return;
 	}
 }
-bool SilentSwap3(int Itemid) {
-	__int64 id = *g_Data.getLocalPlayer()->getUniqueId();
-	C_PlayerInventoryProxy* supplies = g_Data.getLocalPlayer()->getSupplies();
-	C_Inventory* inv = supplies->inventory;
-	for (int n = 0; n < 9; n++) {
-		C_ItemStack* stack = inv->getItemStack(n);
-		if (stack->item != nullptr) {
-			if ((*stack->item)->itemId != 0) {
-				if (stack->getItem()->itemId == Itemid) {
-					C_MobEquipmentPacket a(id, *stack, n, n);
-					g_Data.getClientInstance()->loopbackPacketSender->sendToServer(&a);
-					return true;
-				}
-			}
-		}
-	}
-	return false;
-}
 void getAnchor2() {
 	auto supplies = g_Data.getLocalPlayer()->getSupplies();
 	auto inv = supplies->inventory;  // g_Data.getLocalPlayer()->getSupplies()->inventory->getItemStack(g_Data.getLocalPlayer()->getSupplies())->getItem()->itemID
@@ -272,43 +210,26 @@ void AnchorAura::onTick(C_GameMode* gm) {
 	if (!targetList.empty()) {
 		for (auto& i : targetList) {
 			vec3_t enemyLoc = (i->eyePos0).floor();
-			bottom2 = enemyLoc.add(1, 0, 0);
-			mid1 = enemyLoc.add(0, 1, 0);
-			bottom3 = enemyLoc.add(-1, 0, 0);
-			bottom4 = enemyLoc.add(0, 0, 1);
-			bottom1 = enemyLoc.add(0, 0, -1);
-			//bottom1 = enemyLoc.add(0, 1, 0);
+
+			bottom1 = enemyLoc.add(0, 1, 0);
 			if (!hasPlacedAnchor) {
 				// NOT placed anchor
 				if (!takenAnchor) {
-					if (spoof)
-						//SilentSwap3(-272);
-						anchorspoof();
-					else
-						getAnchor2();
+					getAnchor2();
 					takenAnchor = true;
 					return;
 				}
 
 
-				if (g_Data.getLocalPlayer()->region->getBlock(mid1)->toLegacy()->blockId == 0 || g_Data.getLocalPlayer()->region->getBlock(bottom1)->toLegacy()->blockId == 0) {
+				if (g_Data.getLocalPlayer()->region->getBlock(bottom1)->toLegacy()->blockId == 0) {
 					for (auto& i : targetList)
-						if (spoof) {
-							gm->buildBlock(&vec3_ti(mid1), 0);
+						if (airplace)
+							//placeBlok2(bottom1);
+							placeBlok2(i->getPos()->add(0, +1, 0));
+						else
 							gm->buildBlock(&vec3_ti(bottom1), 0);
-							gm->buildBlock(&vec3_ti(bottom2), 0);
-							gm->buildBlock(&vec3_ti(bottom3), 0);
-							gm->buildBlock(&vec3_ti(bottom4), 0);
-						}
-						else {
-							gm->buildBlock(&vec3_ti(mid1), 0);
-						}
 					Option = 1;
-					if (spoof) {
-						stopSp();
-					}
 				}
-				//stopSp();
 				hasPlacedAnchor = true;
 				//clientMessageF("Placed anchor!");
 			}
@@ -324,12 +245,7 @@ void AnchorAura::onTick(C_GameMode* gm) {
 
 			if (!hasCharged) {
 				if (!takenGS) {
-					if (spoof)
-						//getGS2();
-						//SilentSwap3(89);
-						gsspoof();
-					else
-						getGS2();
+					getGS2();
 					takenGS = true;
 					return;
 				}
@@ -337,25 +253,11 @@ void AnchorAura::onTick(C_GameMode* gm) {
 				switch (Option) {
 				case 1:
 
-					bool sb = g_Data.getLocalPlayer()->region->getBlock(mid1)->toLegacy()->blockId != 0;
-					bool sb2 = g_Data.getLocalPlayer()->region->getBlock(bottom1)->toLegacy()->blockId != 0;
-					if (sb || sb2) {
-						if (spoof) {
-							gm->buildBlock(&vec3_ti(mid1), 0);
-							gm->buildBlock(&vec3_ti(bottom1), 0);
-							gm->buildBlock(&vec3_ti(bottom2), 0);
-							gm->buildBlock(&vec3_ti(bottom3), 0);
-							gm->buildBlock(&vec3_ti(bottom4), 0);
-						}
-						else {
-							gm->buildBlock(&vec3_ti(mid1), 0);
-						}
-						stopSp();
+					bool sb = g_Data.getLocalPlayer()->region->getBlock(bottom1)->toLegacy()->blockId != 0;
+					if (sb) {
+						gm->buildBlock(&vec3_ti(bottom1), 0);
 					}
 					break;
-				}
-				if (spoof) {
-					stopSp();
 				}
 
 				hasCharged = true;
@@ -373,12 +275,7 @@ void AnchorAura::onTick(C_GameMode* gm) {
 			}
 
 			if (!takenAnchor) {
-				if (spoof)
-					//SilentSwap3(-272);
-					anchorspoof();
-				else
-					getAnchor2();
-				//getAnchor2();
+				getAnchor2();
 				takenAnchor = true;
 				return;
 			}
@@ -386,23 +283,11 @@ void AnchorAura::onTick(C_GameMode* gm) {
 			if (!hasDetonated) {
 				switch (Option) {
 				case 1:
-					if (spoof) {
-						gm->buildBlock(&vec3_ti(mid1), 0);
-						gm->buildBlock(&vec3_ti(bottom1), 0);
-						gm->buildBlock(&vec3_ti(bottom2), 0);
-						gm->buildBlock(&vec3_ti(bottom3), 0);
-						gm->buildBlock(&vec3_ti(bottom4), 0);
-					}
-					else {
-						gm->buildBlock(&vec3_ti(mid1), 0);
-					}
-					//stopSp();
+					gm->buildBlock(&vec3_ti(bottom1), 0);
+
 					//gm->buildBlock(&vec3_ti(bottom1), 0);
 					break;
-				}if (spoof) {
-					stopSp();
 				}
-
 				hasDetonated = true;
 			}
 			//clientMessageF("Detonated!");
@@ -416,7 +301,6 @@ void AnchorAura::onTick(C_GameMode* gm) {
 				tickTimer = 0;
 				takenAnchor = false;
 				takenGS = false;
-				//stopSp();
 				return;
 			}
 			else {

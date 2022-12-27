@@ -17,7 +17,7 @@ Watermark::Watermark() : IModule(0, Category::VISUAL, "Displays the watermark") 
 }
 
 const char* Watermark::getModuleName() {
-	return ("纪端名字");
+	return ("Watermark");
 }
 
 void Watermark::onEnable() {

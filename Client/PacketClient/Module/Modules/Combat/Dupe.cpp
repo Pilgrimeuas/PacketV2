@@ -12,7 +12,7 @@ Dupe::Dupe() : IModule(VK_NUMPAD0, Category::COMBAT, "DUPE BY DIMPLES") {
 Dupe::~Dupe() {
 }
 const char* Dupe::getModuleName() {
-	return ("自动复制");
+	return ("Dupe");
 }
 void getP() {
 	auto supplies = g_Data.getLocalPlayer()->getSupplies();

@@ -5,7 +5,7 @@ Sneak::Sneak() : IModule(0, Category::MOVEMENT, "Automatically sneaks") {
 }
 
 const char* Sneak::getModuleName() {
-	return ("蹲");
+	return ("Sneak");
 }
 
 void Sneak::onTick(C_GameMode* gm) {

@@ -12,11 +12,11 @@ NoRotate::NoRotate() : IModule(0, Category::PLAYER, "Prevents servers from setti
 }
 
 const char* NoRotate::getRawModuleName() {
-	return "视角反控制";
+	return "NoRotate";
 }
 
 const char* NoRotate::getModuleName() {
-	if (mode.getSelectedValue() == 0) name = string("视角反控制 ") + string(GRAY) + string("Vanilla");
+	if (mode.getSelectedValue() == 0) name = string("NoRotate ") + string(GRAY) + string("Vanilla");
 	return name.c_str();
 }
 

@@ -14,14 +14,14 @@ LongJump::LongJump() : IModule(0, Category::MOVEMENT, "A Long Jump") {
 }
 
 const char* LongJump::getRawModuleName() {
-	return "远跳";
+	return "LongJump";
 }
 
 const char* LongJump::getModuleName() {
-	if (mode.getSelectedValue() == 0) name = string("远跳 ") + string(GRAY) + string("Vanilla");
-	if (mode.getSelectedValue() == 1) name = string("远跳 ") + string(GRAY) + string("Old");
-	if (mode.getSelectedValue() == 2) name = string("远跳 ") + string(GRAY) + string("Hive");
-	if (mode.getSelectedValue() == 3) name = string("远跳 ") + string(GRAY) + string("Cubecraft");
+	if (mode.getSelectedValue() == 0) name = string("LongJump ") + string(GRAY) + string("Vanilla");
+	if (mode.getSelectedValue() == 1) name = string("LongJump ") + string(GRAY) + string("Old");
+	if (mode.getSelectedValue() == 2) name = string("LongJump ") + string(GRAY) + string("Hive");
+	if (mode.getSelectedValue() == 3) name = string("LongJump ") + string(GRAY) + string("Cubecraft");
 	return name.c_str();
 }
 

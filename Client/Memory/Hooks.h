@@ -69,6 +69,7 @@ private:
 	bool shouldRender = true;
 	// bool shouldRenderAura = true;
 public:
+	std::time_t connecttime = 0;
 	char currentScreenName[100];
 	std::vector<std::shared_ptr<FuncHook>> lambdaHooks;
 	struct EntityListPointerHolder {
@@ -131,13 +132,13 @@ private:
 	static void LevelRendererPlayer__renderNameTags(__int64 a1, __int64 a2, TextHolder* name, __int64 a4);
 	static void Actor_rotation(C_Entity* _this, vec2_t& angle);
 	static int ForceThirdPersonLol(__int64 a1);
-
+	//static std::shared_mutex pcblock;
 	std::unique_ptr<FuncHook> setPosHook;
-	std::unique_ptr<FuncHook> Actor__baseTick; 
+	std::unique_ptr<FuncHook> Actor__baseTick;
 	std::unique_ptr<FuncHook> Actor_rotationHook;
 	std::unique_ptr<FuncHook> UIScene_setupAndRenderHook;
 	std::unique_ptr<FuncHook> UIScene_renderHook;
-	std::unique_ptr<FuncHook> RenderTextHook; 
+	std::unique_ptr<FuncHook> RenderTextHook;
 	std::unique_ptr<FuncHook> forceThirdPerson;
 	std::unique_ptr<FuncHook> Dimension_getFogColorHook;
 	std::unique_ptr<FuncHook> Dimension_getTimeOfDayHook;
@@ -194,7 +195,8 @@ public:
 
 		MH_STATUS ret = MH_CreateHook(func, hooked, &funcReal);
 		if (ret == MH_OK && (__int64)func > 10) {
-		} else
+		}
+		else
 			logF("MH_CreateHook = %i", ret);
 	};
 
@@ -203,7 +205,8 @@ public:
 
 		MH_STATUS ret = MH_CreateHook(funcPtr, hooked, &funcReal);
 		if (ret == MH_OK && (__int64)funcPtr > 10) {
-		} else
+		}
+		else
 			logF("MH_CreateHook = %i", ret);
 	};
 
@@ -212,7 +215,8 @@ public:
 			int ret = enable ? MH_EnableHook(funcPtr) : MH_DisableHook(funcPtr);
 			if (ret != MH_OK)
 				logF("MH_EnableHook = %i", ret);
-		} else
+		}
+		else
 			logF("enableHook() called with nullptr func!");
 	}
 

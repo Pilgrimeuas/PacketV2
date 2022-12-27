@@ -11,12 +11,12 @@ ToggleSounds::ToggleSounds() : IModule(0, Category::OTHER, "Plays a sound when y
 }
 
 const char* ToggleSounds::getRawModuleName() {
-	return "点击音效";
+	return "ToggleSounds";
 }
 
 const char* ToggleSounds::getModuleName() {
-	if (sound.getSelectedValue() == 0) name = string("点击音效 ") + string(GRAY) + string("Click");
-	if (sound.getSelectedValue() == 1) name = string("点击音效 ") + string(GRAY) + string("Piston");
-	if (sound.getSelectedValue() == 2) name = string("点击音效 ") + string(GRAY) + string("Sigma");
+	if (sound.getSelectedValue() == 0) name = string("ToggleSounds ") + string(GRAY) + string("Click");
+	if (sound.getSelectedValue() == 1) name = string("ToggleSounds ") + string(GRAY) + string("Piston");
+	if (sound.getSelectedValue() == 2) name = string("ToggleSounds ") + string(GRAY) + string("Sigma");
 	return name.c_str();
 }

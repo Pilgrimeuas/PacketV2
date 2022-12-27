@@ -22,7 +22,7 @@ Radar::Radar() : IModule(0, Category::VISUAL, "Displays nearby players") {
 }
 
 const char* Radar::getModuleName() {
-	return "雷达";
+	return "Radar";
 }
 
 void recalculateScale() {
@@ -40,8 +40,8 @@ void renderEntity(C_Entity* currentEntity, bool isRegularEntity) {
 	if (currentEntity == player)  // Skip Local player
 		return;
 
-	if (!player->canAttack(currentEntity, false))
-		return;
+	//if (!player->canAttack(currentEntity, false))
+		//return;
 
 	if (!currentEntity->isAlive())
 		return;

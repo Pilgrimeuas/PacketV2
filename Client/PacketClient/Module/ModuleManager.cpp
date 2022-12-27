@@ -105,6 +105,7 @@ void ModuleManager::initModules() {
 		moduleList.push_back(std::shared_ptr<IModule>(new FlyFO()));
 		moduleList.push_back(std::shared_ptr<IModule>(new Speed()));
 		moduleList.push_back(std::shared_ptr<IModule>(new Step()));
+		moduleList.push_back(std::shared_ptr<IModule>(new ElytraFly()));
 		moduleList.push_back(std::shared_ptr<IModule>(new NoClip()));
 		moduleList.push_back(std::shared_ptr<IModule>(new Anchor()));
 		moduleList.push_back(std::shared_ptr<IModule>(new Burrow()));
@@ -155,10 +156,13 @@ void ModuleManager::initModules() {
 		moduleList.push_back(std::shared_ptr<IModule>(new ToggleSounds()));
 		moduleList.push_back(std::shared_ptr<IModule>(new HoleFiller()));
 		moduleList.push_back(std::shared_ptr<IModule>(new AutoXP()));
+		moduleList.push_back(std::shared_ptr<IModule>(new kkk()));
+		moduleList.push_back(std::shared_ptr<IModule>(new StackableItem()));
 		moduleList.push_back(std::shared_ptr<IModule>(new DeathEffects()));
 		moduleList.push_back(std::shared_ptr<IModule>(new EditionFaker()));
 		moduleList.push_back(std::shared_ptr<IModule>(new FollowPath()));
 		moduleList.push_back(std::shared_ptr<IModule>(new HitEffects()));
+		moduleList.push_back(std::shared_ptr<IModule>(new ShulkerExploit()));
 		moduleList.push_back(std::shared_ptr<IModule>(new FastXPtwo()));
 		moduleList.push_back(std::shared_ptr<IModule>(new AutoGapple()));
 		moduleList.push_back(std::shared_ptr<IModule>(new ChatSuffix()));

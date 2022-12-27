@@ -9,9 +9,9 @@ NoRender::NoRender() : IModule(0, Category::VISUAL, "Un-Rendering or un-image sy
 }
 
 const char* NoRender::getRawModuleName() {
-	return "屏蔽粒子";
+	return "NoRender";
 }
 
 const char* NoRender::getModuleName() {
-	return "屏蔽粒子";
+	return "NoRender";
 }

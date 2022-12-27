@@ -27,7 +27,7 @@ PistonAura::PistonAura() : IModule(VK_NUMPAD0, Category::COMBAT, "LOL PistonAura
 PistonAura::~PistonAura() {
 }
 const char* PistonAura::getModuleName() {
-	return ("活塞光环");
+	return ("PistonAura");
 }
 
 static std::vector<C_Entity*> targetList;
@@ -580,42 +580,50 @@ void PistonAura::onTick(C_GameMode* gm) {
 	}
 	if (!hastrap) {
 		if (!takentrap) {//redstone
-			SilentSwap2(49);
+			getche();
 			takentrap = true;
 			return;
 		}
 		C_Block* block2 = gm->player->region->getBlock(neckBreaker.add(0, 1, 0));
 		auto bid = block2->toLegacy()->blockId;
 		switch (Option) {
-			if (bid == 0) {
 		case 1:
 
-
-			if (airplace)
-				gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
-			else
-				gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
-
-			break;
-		case 2:
-			if (airplace)
-				gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
-			else
-				gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
-			break;
-		case 3:
-			if (airplace)
-				gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
-			else
-				gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
-			break;
-		case 4:
-			if (airplace)
-				gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
-			else
-				gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
-			break;
+			if (bid == 0) {
+				if (airplace)
+					gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
+				else
+					gm->buildBlock(&vec3_ti(neckBreaker.add(0, 0, 0)), 0);
 			}
+
+			break;
+
+		case 2:
+			if (bid == 0) {
+				if (airplace)
+					gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
+				else
+					gm->buildBlock(&vec3_ti(neckBreaker.add(0, 0, 0)), 0);
+			}
+			break;
+
+		case 3:
+			if (bid == 0) {
+				if (airplace)
+					gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
+				else
+					gm->buildBlock(&vec3_ti(neckBreaker.add(0, 0, 0)), 0);
+			}
+			break;
+
+		case 4:
+			if (bid == 0) {
+				if (airplace)
+					gm->buildBlock(&vec3_ti(neckBreaker.add(0, 1, 0)), 0);
+				else
+					gm->buildBlock(&vec3_ti(neckBreaker.add(0, 0, 0)), 0);
+			}
+			break;
 		}
 		hastrap = true;
 	}

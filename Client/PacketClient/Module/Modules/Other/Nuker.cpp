@@ -9,7 +9,7 @@ Nuker::Nuker() : IModule(0, Category::OTHER, "Destroys all blocks around you") {
 }
 
 const char* Nuker::getModuleName() {
-	return ("范围破坏");
+	return ("Nuker");
 }
 
 void Nuker::onTick(C_GameMode* gm) {

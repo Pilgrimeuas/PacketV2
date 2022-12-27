@@ -45,7 +45,7 @@ RenSurround::~RenSurround() {
 }
 
 const char* RenSurround::getModuleName() {
-	return "围脚";
+	return "RenSurround";
 }
 const char* RenSurround::getModName() {
 	if (java) {

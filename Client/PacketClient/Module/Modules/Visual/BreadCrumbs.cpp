@@ -9,7 +9,7 @@ BreadCrumbs::BreadCrumbs() : IModule(0, Category::VISUAL, "Shows a trail where y
 }
 
 const char* BreadCrumbs::getModuleName() {
-	return ("尾迹显示");
+	return ("BreadCrumbs");
 }
 
 void BreadCrumbs::onTick(C_GameMode* gm) {

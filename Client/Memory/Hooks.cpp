@@ -5,6 +5,7 @@
 #include <glm/ext/matrix_relational.hpp>
 #include <glm/ext/matrix_transform.hpp>  // perspective, translate, rotate
 #include <glm/gtc/constants.hpp>
+#include <shared_mutex>
 #include <glm/mat4x4.hpp>         // mat4
 #include <glm/trigonometric.hpp>  //radians
 
@@ -309,7 +310,7 @@ void Hooks::Enable() {
 	logF("Hooks enabled");
 	MH_EnableHook(MH_ALL_HOOKS);
 }
-
+static std::shared_mutex pcblock;
 int Hooks::ForceThirdPersonLol(__int64 a1) {
 	static auto func = g_Hooks.forceThirdPerson->GetFastcall<int, __int64>();
 	if (a1 == 1) g_Hooks.isThirdPerson = false;
@@ -323,6 +324,7 @@ bool Hooks::playerCallBack(C_Player* lp, __int64 a2, __int64 a3) {
 	if (lp == g_Data.getLocalPlayer())
 		moduleMgr->onPlayerTick(lp);
 	if (g_Data.getLocalPlayer() != nullptr && lp == g_Data.getLocalPlayer()) {
+		auto lock = std::shared_lock(pcblock);
 		if (!g_Data.getLocalPlayer() || !g_Data.getLocalPlayer()->pointingStruct || !*(&g_Data.getLocalPlayer()->region + 1))
 			g_Hooks.entityList.clear();
 
@@ -507,15 +509,20 @@ __int64 Hooks::RenderText(__int64 a1, C_MinecraftUIRenderContext* renderCtx) {
 	//basicly make inv cleaner not clean when in chests and shit
 	//if (strcmp(screenName.c_str(), "small_chest_screen") == 0 || strcmp(screenName.c_str(), "large_chest_screen") == 0 || strcmp(screenName.c_str(), "ender_chest_screen") == 0 || strcmp(screenName.c_str(), "shulker_box_screen") == 0)
 		//if(invMod->isEnabled()) invMod->doTheShit = false; else if (invMod->isEnabled()) invMod->doTheShit = true;
-
-	if (strcmp(screenName.c_str(), "inventory_screen") == 0 || strcmp(screenName.c_str(), "small_chest_screen") == 0 || strcmp(screenName.c_str(), "large_chest_screen") == 0 || strcmp(screenName.c_str(), "ender_chest_screen") == 0 || strcmp(screenName.c_str(), "shulker_box_screen") == 0) {
+	//if (!strcmp(screenName.c_str(), "start_screen") == 0)
+	if (strcmp(screenName.c_str(), "smithing_table_screen") == 0 || strcmp(screenName.c_str(), "anvil_screen") == 0 || strcmp(screenName.c_str(), "small_chest_screen") == 0 || strcmp(screenName.c_str(), "large_chest_screen") == 0 || strcmp(screenName.c_str(), "ender_chest_screen") == 0 || strcmp(screenName.c_str(), "shulker_box_screen") == 0) {
 		static auto killauraMod = moduleMgr->getModule<Killaura>();
 		static auto aidMod = moduleMgr->getModule<ChestStealer>();
 		static auto invMod = moduleMgr->getModule<InvManager>();
+		static auto kkkk = moduleMgr->getModule<kkk>();
+		static auto nopa = moduleMgr->getModule<NoPacket>();
 		string len = "disable cheststealer  ";
 		string killaura = "    Disable Killaura";
 		string invManager = "  Disable InvManager";
-		string chestStealer = " Disable ChestStealer";
+		string chestStealer = " Disable Nopacket";
+		string kkk = " Open 32k";
+		string kkk2 = " Disabler 32k";
+		string nop = " Open nopacket";
 		float buttonLen = DrawUtils::getTextWidth(&len, 1) + 10;
 		vec4_t rectPos = vec4_t(6, 50, buttonLen, 62);
 		vec2_t textPos = vec2_t(rectPos.x + 3, rectPos.y + 2);
@@ -523,16 +530,31 @@ __int64 Hooks::RenderText(__int64 a1, C_MinecraftUIRenderContext* renderCtx) {
 		vec2_t textPos2 = vec2_t(rectPos2.x + 3, rectPos2.y + 2);
 		vec4_t rectPos3 = vec4_t(6, 10, buttonLen, 22);
 		vec2_t textPos3 = vec2_t(rectPos3.x + 2, rectPos3.y + 2);
+		vec4_t rectPos4 = vec4_t(6, 70, buttonLen, 82);
+		vec2_t textPos4 = vec2_t(rectPos4.x + 2, rectPos4.y + 2);
+		vec4_t rectPos5 = vec4_t(6, 90, buttonLen, 102);
+		vec2_t textPos5 = vec2_t(rectPos5.x + 2, rectPos5.y + 2);
+		vec4_t rectPos6 = vec4_t(6, 110, buttonLen, 122);
+		vec2_t textPos6 = vec2_t(rectPos6.x + 2, rectPos6.y + 2);
 
 		if (rectPos.contains(&mousePos) && leftClickDown) killauraMod->setEnabled(false);
 		if (rectPos2.contains(&mousePos) && leftClickDown) invMod->setEnabled(false);
-		if (rectPos3.contains(&mousePos) && leftClickDown) aidMod->setEnabled(false);
+		if (rectPos3.contains(&mousePos) && leftClickDown) nopa->setEnabled(false);
+		if (rectPos4.contains(&mousePos) && leftClickDown) kkkk->setEnabled(true);
+		if (rectPos5.contains(&mousePos) && leftClickDown) nopa->setEnabled(true);
+		if (rectPos6.contains(&mousePos) && leftClickDown) kkkk->setEnabled(false);
 		if (rectPos.contains(&mousePos)) DrawUtils::fillRoundRectangle(rectPos, MC_Color(128, 128, 128, 80), false);
 		else DrawUtils::fillRoundRectangle(rectPos, MC_Color(0, 0, 0, 80), false);
 		if (rectPos2.contains(&mousePos)) DrawUtils::fillRoundRectangle(rectPos2, MC_Color(128, 128, 128, 80), false);
 		else DrawUtils::fillRoundRectangle(rectPos2, MC_Color(0, 0, 0, 80), false);
 		if (rectPos3.contains(&mousePos)) DrawUtils::fillRoundRectangle(rectPos3, MC_Color(128, 128, 128, 80), false);
 		else DrawUtils::fillRoundRectangle(rectPos3, MC_Color(0, 0, 0, 80), false);
+		if (rectPos4.contains(&mousePos)) DrawUtils::fillRoundRectangle(rectPos4, MC_Color(128, 128, 128, 80), false);
+		else DrawUtils::fillRoundRectangle(rectPos4, MC_Color(0, 0, 0, 80), false);
+		if (rectPos5.contains(&mousePos)) DrawUtils::fillRoundRectangle(rectPos5, MC_Color(128, 128, 128, 80), false);
+		else DrawUtils::fillRoundRectangle(rectPos5, MC_Color(0, 0, 0, 80), false);
+		if (rectPos6.contains(&mousePos)) DrawUtils::fillRoundRectangle(rectPos6, MC_Color(128, 128, 128, 80), false);
+		else DrawUtils::fillRoundRectangle(rectPos6, MC_Color(0, 0, 0, 80), false);
 		//Pls TEst button stuffs
 		//vec4_t rectPos1 = vec4_t(6, 50, buttonLen, 62);
 		//if (HImGui.Button("Disable Killaura", vec2_t(rectPos1.x + 3, rectPos1.y + 2), true)) { if (killauraMod->isEnabled()) killauraMod->setEnabled(false); }
@@ -540,6 +562,9 @@ __int64 Hooks::RenderText(__int64 a1, C_MinecraftUIRenderContext* renderCtx) {
 		DrawUtils::drawText(textPos, &killaura, MC_Color(255, 255, 255), 1, 1);
 		DrawUtils::drawText(textPos2, &invManager, MC_Color(255, 255, 255), 1, 1);
 		DrawUtils::drawText(textPos3, &chestStealer, MC_Color(255, 255, 255), 1, 1);
+		DrawUtils::drawText(textPos4, &kkk, MC_Color(255, 255, 255), 1, 1);
+		DrawUtils::drawText(textPos5, &nop, MC_Color(255, 255, 255), 1, 1);
+		DrawUtils::drawText(textPos6, &kkk2, MC_Color(255, 255, 255), 1, 1);
 	}
 
 	if (isHUDHidden || GameData::shouldHide() || !g_Hooks.shouldRender || !moduleMgr->isInitialized())
@@ -1314,6 +1339,7 @@ __int64 Hooks::ConnectionRequest_create(__int64 _this, __int64 privateKeyManager
 	static auto oFunc = g_Hooks.ConnectionRequest_createHook->GetFastcall<__int64, __int64, __int64, void*, TextHolder*, TextHolder*, __int64, TextHolder*, SkinData*, __int64, CoolSkinData*, TextHolder*, int, int, int, TextHolder*, bool, TextHolder*, __int64, TextHolder*, TextHolder*, bool, TextHolder*, TextHolder*, TextHolder*>();
 
 	auto geoOverride = g_Data.getCustomGeoOverride();
+	g_Hooks.connecttime = std::time(nullptr);
 
 	logF("Connection Request: InputMode: %i UiProfile: %i GuiScale: %i", inputMode, uiProfile, guiScale);
 	TextHolder* fakeName = g_Data.getFakeName();

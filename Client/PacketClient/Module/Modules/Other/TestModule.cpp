@@ -58,8 +58,8 @@ void findEntity_TestModule(C_Entity* currentEntity, bool isRegularEntity) {
 	if (currentEntity == g_Data.getLocalPlayer())
 		return;
 
-	if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
-		return;
+	//if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
+		//return;
 
 	if (!g_Data.getLocalPlayer()->isAlive())
 		return;
@@ -224,12 +224,12 @@ void TestModule::onPreRender(C_MinecraftUIRenderContext* renderCtx) {
 	//DrawUtils::drawImage("textures/ui/promo_creeper.png", vec2_t(100, 100), vec2_t(800, 100), vec2_t(0.f, 0.f), vec2_t(1.f, 1.f) , MC_Color(0.f, 0.f, 1.f));
 	//DrawUtils::flushImage();
 	auto i = ColorUtil::interfaceColor(1);
-	DrawUtils::drawImage("textures/ui/promo_creeper.png", vec2_t(200, 200), vec2_t(100, 100), vec2_t(0.f, 0.f), vec2_t(1.f, 1.f) , i);
+	DrawUtils::drawImage("textures/ui/promo_creeper.png", vec2_t(200, 200), vec2_t(100, 100), vec2_t(0.f, 0.f), vec2_t(1.f, 1.f), i);
 	string lol = "Custom String";
 	DrawUtils::drawGradientText(vec2_t(100, 100), &lol, 10.f, 1, true);
 }
 
-void TestModule::onSendPacket(C_Packet * packet) {
+void TestModule::onSendPacket(C_Packet* packet) {
 	/*auto player = g_Data.getLocalPlayer();
 	if (player == nullptr) return;
 

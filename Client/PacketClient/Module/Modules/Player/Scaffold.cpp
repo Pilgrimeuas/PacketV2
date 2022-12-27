@@ -32,12 +32,12 @@ Scaffold::Scaffold() : IModule(0, Category::PLAYER, "Places blocks under you") {
 }
 
 const char* Scaffold::getRawModuleName() {
-	return "自动搭路";
+	return "Scaffold";
 }
 
 const char* Scaffold::getModuleName() {
-	if (rotations.getSelectedValue() <= 4) name = string("自动搭路 ") + string(GRAY) + rotations.GetEntry(rotations.getSelectedValue()).GetName();
-	else name = string("自动搭路");
+	if (rotations.getSelectedValue() <= 4) name = string("Scaffold ") + string(GRAY) + rotations.GetEntry(rotations.getSelectedValue()).GetName();
+	else name = string("Scaffold");
 	return name.c_str();
 }
 

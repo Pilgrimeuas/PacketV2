@@ -15,7 +15,7 @@ CPSAura::~CPSAura() {
 }
 
 const char* CPSAura::getModuleName() {
-	return ("高速杀戮");
+	return ("CPSAura");
 }
 
 static std::vector<C_Entity*> targetList;
@@ -29,8 +29,8 @@ void FindEntity(C_Entity* currentEntity, bool isRegularEntity) {
 	if (currentEntity == g_Data.getLocalPlayer())  // Skip Local player
 		return;
 
-	if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
-		return;
+	//if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
+		//return;
 
 	if (!g_Data.getLocalPlayer()->isAlive())
 		return;

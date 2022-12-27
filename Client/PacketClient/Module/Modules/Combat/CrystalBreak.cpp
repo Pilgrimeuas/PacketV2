@@ -30,7 +30,7 @@ CrystalBreak::CrystalBreak() : IModule(0, Category::COMBAT, "comes as a set with
 CrystalBreak::~CrystalBreak() {};
 
 const char* CrystalBreak::getModuleName() {
-	return ("水晶光环a");
+	return ("CrystalBreakJWTD");
 }
 
 static std::vector<C_Entity*> crystalList;

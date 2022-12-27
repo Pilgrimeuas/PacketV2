@@ -12,7 +12,7 @@ AntiVoid::AntiVoid() : IModule(0, Category::MOVEMENT, "Prevents you from falling
 }
 
 const char* AntiVoid::getModuleName() {
-	return ("虚空回弹");
+	return ("AntiVoid");
 }
 
 void AntiVoid::onEnable() {

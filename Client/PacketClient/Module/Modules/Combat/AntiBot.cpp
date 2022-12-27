@@ -14,11 +14,11 @@ AntiBot::AntiBot() : IModule(0, Category::COMBAT, "Ignores anticheat generated N
 }
 
 const char* AntiBot::getRawModuleName() {
-	return "反假人";
+	return "AntiBot";
 }
 
 const char* AntiBot::getModuleName() {
-	if (mode.getSelectedValue() == 0) name = string("反假人 ") + string(GRAY) + string("Basic");
-	if (mode.getSelectedValue() == 1) name = string("反假人 ") + string(GRAY) + string("Advanced");
+	if (mode.getSelectedValue() == 0) name = string("AntiBot ") + string(GRAY) + string("Basic");
+	if (mode.getSelectedValue() == 1) name = string("AntiBot ") + string(GRAY) + string("Advanced");
 	return name.c_str();
 }

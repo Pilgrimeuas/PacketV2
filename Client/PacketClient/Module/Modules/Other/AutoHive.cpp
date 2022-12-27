@@ -11,11 +11,11 @@ AutoHive::AutoHive() : IModule(0, Category::OTHER, "Automates things on The Hive
 }
 
 const char* AutoHive::getRawModuleName() {
-	return "自动玩hive";
+	return "AutoHive";
 }
 
 const char* AutoHive::getModuleName() {
-	return "自动玩hive";
+	return "AutoHive";
 }
 
 static vector<C_Entity*> entityList;
@@ -26,7 +26,7 @@ void findEntity_AH(C_Entity* currentEntity, bool isRegularEntity) {
 	if (g_Data.canUseMoveKeys() && g_Data.getLocalPlayer() != nullptr) {
 		if (currentEntity == nullptr) return;
 		if (currentEntity == g_Data.getLocalPlayer()) return;
-		if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false)) return;
+		//if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false)) return;
 		if (!g_Data.getLocalPlayer()->isAlive()) return;
 		if (!currentEntity->isAlive()) return;
 

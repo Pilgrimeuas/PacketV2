@@ -14,7 +14,7 @@ HoleFiller::~HoleFiller() {
 }
 
 const char* HoleFiller::getModuleName() {
-	return ("自动填坑");
+	return ("HoleFiller");
 }
 
 void getObbyHF() {

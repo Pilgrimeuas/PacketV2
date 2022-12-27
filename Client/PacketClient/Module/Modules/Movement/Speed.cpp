@@ -30,11 +30,11 @@ Speed::Speed() : IModule(0, Category::MOVEMENT, "Increases your speed") {
 }
 
 const char* Speed::getRawModuleName() {
-	return "速度";
+	return "Speed";
 }
 
 const char* Speed::getModuleName() {
-	name = string("速度 ") + string(GRAY) + mode.GetEntry(mode.getSelectedValue()).GetName();
+	name = string("Speed ") + string(GRAY) + mode.GetEntry(mode.getSelectedValue()).GetName();
 	return name.c_str();
 }
 

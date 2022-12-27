@@ -7,5 +7,5 @@ Teams::Teams() : IModule(0, Category::COMBAT, "Automatically friends everyone on
 }
 
 const char* Teams::getModuleName() {
-	return ("队伍模式");
+	return ("Teams");
 }

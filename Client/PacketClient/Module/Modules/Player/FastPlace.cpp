@@ -6,7 +6,7 @@ FastPlace::FastPlace() : IModule(0, Category::PLAYER, "Changes the block placing
 }
 
 const char* FastPlace::getModuleName() {
-	return ("快速放置");
+	return ("FastPlace");
 }
 
 void FastPlace::onTick(C_GameMode* gm) {

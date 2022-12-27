@@ -8,7 +8,7 @@ ItemTP::ItemTP() : IModule(0, Category::OTHER, "Teleports you to items") {
 }
 
 const char* ItemTP::getModuleName() {
-	return "物品TP";
+	return "ItemTP";
 }
 
 static std::vector<C_Entity*> targetList;

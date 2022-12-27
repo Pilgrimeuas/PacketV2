@@ -10,7 +10,7 @@ Waypoints::Waypoints() : IModule(0, Category::VISUAL, "Shows holograms for defin
 }
 
 const char* Waypoints::getModuleName() {
-	return "坐标显示";
+	return "Waypoints";
 }
 
 void Waypoints::onPreRender(C_MinecraftUIRenderContext* renderCtx) {

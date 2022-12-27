@@ -7,7 +7,7 @@ using namespace std;
 FollowPath::FollowPath() : IModule(0x0, Category::OTHER, "Path Moment") {}
 
 const char* FollowPath::getModuleName() {
-	return "自动找家";
+	return "FollowPath";
 }
 
 void FollowPath::startSearch(vec3_ti startNode, C_BlockSource* region, float searchTimeout, function<void(bool, Path)> callback) {

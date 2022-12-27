@@ -8,7 +8,7 @@ EntitySpeed::~EntitySpeed() {
 }
 
 const char* EntitySpeed::getModuleName() {
-	return ("实体加速");
+	return ("EntitySpeed");
 }
 static std::vector<C_Entity*> targetDeez;
 void findDeez(C_Entity* currentEntity, bool isRegularEntity) {

@@ -12,16 +12,16 @@ Ambience::Ambience() : IModule(0, Category::VISUAL, "Changes the Time/Weather cl
 }
 
 const char* Ambience::getRawModuleName() {
-	return "天气时间控制";
+	return "Ambience";
 }
 
 const char* Ambience::getModuleName() {
 	if (time <= 0.24 || time >= 0.77) {
-		name = string("天气时间控制 ") + string(GRAY) + string("Day");
+		name = string("Ambience ") + string(GRAY) + string("Day");
 		return name.c_str();
 	}
 	if (time >= 0.24 || time <= 0.77) {
-		name = string("天气时间控制 ") + string(GRAY) + string("Night");
+		name = string("Ambience ") + string(GRAY) + string("Night");
 		return name.c_str();
 	}
 }

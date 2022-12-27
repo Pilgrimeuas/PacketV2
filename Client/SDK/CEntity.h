@@ -964,6 +964,8 @@ public:
 
 	float getBlocksPerSecond();
 
+	bool checkNameTagFuncO();
+
 	int getTicksUsingItem() {
 		return *reinterpret_cast<int*>(reinterpret_cast<__int64>(this) + 0xFF8);
 	}

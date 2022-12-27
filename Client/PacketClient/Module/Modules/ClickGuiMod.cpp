@@ -26,7 +26,7 @@ ClickGUIMod::ClickGUIMod() : IModule(VK_INSERT, Category::VISUAL, "A GUI that di
 }
 
 const char* ClickGUIMod::getModuleName() {
-	return ("功能大全");
+	return ("Clickgui");
 }
 
 bool ClickGUIMod::allowAutoStart() {

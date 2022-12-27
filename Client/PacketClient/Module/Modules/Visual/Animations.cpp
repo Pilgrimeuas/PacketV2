@@ -22,15 +22,15 @@ Animations::Animations() : IModule(0, Category::VISUAL, "Changes the swing/hitti
 }
 
 const char* Animations::getRawModuleName() {
-	return "更曼妙的挥手动作";
+	return "Animations";
 }
 
 const char* Animations::getModuleName() {
-	if (mode.getSelectedValue() == 0) name = string("更曼妙的挥手动作");
-	if (mode.getSelectedValue() == 1) name = string("更曼妙的挥手动作 ") + string(GRAY) + string("1.7");
-	if (mode.getSelectedValue() == 2) name = string("更曼妙的挥手动作 ") + string(GRAY) + string("Slide");
-	if (mode.getSelectedValue() == 3) name = string("更曼妙的挥手动作 ") + string(GRAY) + string("Old");
-	if (mode.getSelectedValue() == 4) name = string("更曼妙的挥手动作 ") + string(GRAY) + string("Spin");
+	if (mode.getSelectedValue() == 0) name = string("Animations");
+	if (mode.getSelectedValue() == 1) name = string("Animations ") + string(GRAY) + string("1.7");
+	if (mode.getSelectedValue() == 2) name = string("Animations ") + string(GRAY) + string("Slide");
+	if (mode.getSelectedValue() == 3) name = string("Animations ") + string(GRAY) + string("Old");
+	if (mode.getSelectedValue() == 4) name = string("Animations ") + string(GRAY) + string("Spin");
 	return name.c_str();
 }
 

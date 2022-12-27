@@ -13,7 +13,7 @@ SessionInfo::SessionInfo() : IModule(0, Category::VISUAL, "Displays the SessionI
 }
 
 const char* SessionInfo::getModuleName() {
-	return ("服务器列表");
+	return ("SessionInfo");
 }
 
 void SessionInfo::onTick(C_GameMode* gm) {

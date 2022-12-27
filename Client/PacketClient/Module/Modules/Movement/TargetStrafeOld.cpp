@@ -13,7 +13,7 @@ TargetStrafeOld::TargetStrafeOld() : IModule(0, Category::MOVEMENT, "TargetStraf
 }
 
 const char* TargetStrafeOld::getModuleName() {
-	return ("目标围绕2");
+	return ("TargetStrafeOld");
 }
 
 void TargetStrafeOld::onMove(C_MoveInputHandler* input) {
@@ -38,8 +38,8 @@ void findEntityTSOLD(C_Entity* currentEntity, bool isRegularEntity) {
 	if (currentEntity == g_Data.getLocalPlayer())  // Skip Local player
 		return;
 
-	if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
-		return;
+	//if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
+		//return;
 
 	if (!g_Data.getLocalPlayer()->isAlive())
 		return;

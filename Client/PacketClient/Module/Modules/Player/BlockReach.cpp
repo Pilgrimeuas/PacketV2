@@ -6,5 +6,5 @@ BlockReach::BlockReach() : IModule(0, Category::PLAYER, "Allows you to place blo
 }
 
 const char* BlockReach::getModuleName() {
-	return "方块长臂猿";
+	return "BlockReach";
 }

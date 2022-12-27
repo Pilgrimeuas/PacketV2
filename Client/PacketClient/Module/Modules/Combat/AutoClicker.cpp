@@ -9,7 +9,7 @@ AutoClicker::AutoClicker() : IModule(0, Category::COMBAT, "Automatically clicks 
 }
 
 const char* AutoClicker::getModuleName() {
-	return ("快速连点");
+	return ("AutoClicker");
 }
 
 void AutoClicker::onPlayerTick(C_Player* plr) {

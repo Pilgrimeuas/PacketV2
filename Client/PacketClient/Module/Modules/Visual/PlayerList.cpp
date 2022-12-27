@@ -10,13 +10,13 @@ PlayerList::PlayerList() : IModule(VK_TAB, Category::VISUAL, "Displays all playe
 }
 
 const char* PlayerList::getModuleName() {
-	return "玩家列表";
+	return "PlayerList";
 }
 
 static vector<C_Entity*> playerList;
 void findPlayers(C_Entity* currentEntity, bool isRegularEntity) {
 	if (currentEntity == nullptr) return;
-	if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false)) return;
+	//if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false)) return;
 	if (!g_Data.getLocalPlayer()->isAlive()) return;
 	if (!currentEntity->isAlive()) return;
 	if (currentEntity->getEntityTypeId() != 319) return;

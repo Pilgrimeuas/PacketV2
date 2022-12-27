@@ -17,11 +17,11 @@ Breaker::Breaker() : IModule(0, Category::OTHER, "Breaks certain blocks around y
 }
 
 const char* Breaker::getRawModuleName() {
-	return "隔开挖床";
+	return "Breaker";
 }
 
 const char* Breaker::getModuleName() {
-	name = string("隔空挖床") + string(GRAY) + to_string((int)range);
+	name = string("Breaker") + string(GRAY) + to_string((int)range);
 	return name.c_str();
 }
 

@@ -9,12 +9,12 @@ Killsults::Killsults() : IModule(0, Category::OTHER, "Insults people you kill lo
 }
 
 const char* Killsults::getRawModuleName() {
-	return "击杀嘲讽";
+	return "Killsults";
 }
 
 const char* Killsults::getModuleName() {
-	if (mode.getSelectedValue() == 0) name = string("击杀嘲讽 ") + string(GRAY) + string("Normal");
-	if (mode.getSelectedValue() == 1) name = string("击杀嘲讽 ") + string(GRAY) + string("Custom");
+	if (mode.getSelectedValue() == 0) name = string("Killsults ") + string(GRAY) + string("Normal");
+	if (mode.getSelectedValue() == 1) name = string("Killsults ") + string(GRAY) + string("Custom");
 	return name.c_str();
 }
 

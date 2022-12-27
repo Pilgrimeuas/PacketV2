@@ -6,7 +6,7 @@ TriggerBot::TriggerBot() : IModule(0, Category::COMBAT, "Attacks the entity you'
 }
 
 const char* TriggerBot::getModuleName() {
-	return ("准星攻击");
+	return ("TriggerBot");
 }
 
 void TriggerBot::onTick(C_GameMode* gm) {

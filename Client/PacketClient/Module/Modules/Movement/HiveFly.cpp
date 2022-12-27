@@ -6,7 +6,7 @@ HiveFly::HiveFly() : IModule(0, Category::MOVEMENT, "How the fuck does this bypa
 }
 
 const char* HiveFly::getModuleName() {
-	return ("Hive飞行");
+	return ("HiveFly");
 }
 
 float epicHiveFlySpeedArrayThingy[15] = {

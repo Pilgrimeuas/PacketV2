@@ -12,7 +12,7 @@ Compass::~Compass() {
 }
 
 const char* Compass::getModuleName() {
-	return "活塞光环方向指南";
+	return "PistonCompass";
 }
 
 void Compass::onPreRender(C_MinecraftUIRenderContext* renderCtx) {

@@ -5,5 +5,5 @@ SafeWalk::SafeWalk() : IModule(0, Category::MOVEMENT, "Prevents you from walking
 }
 
 const char* SafeWalk::getModuleName() {
-	return "安全行走";
+	return "SafeWalk";
 }

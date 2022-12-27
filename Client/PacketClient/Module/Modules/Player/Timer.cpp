@@ -6,7 +6,7 @@ Timer::Timer() : IModule(0, Category::PLAYER, "Modifies the games speed") {
 }
 
 const char* Timer::getModuleName() {
-	return ("变速齿轮");
+	return ("Timer");
 }
 
 void Timer::onTick(C_GameMode* gm) {

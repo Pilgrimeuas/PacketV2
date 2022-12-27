@@ -10,7 +10,7 @@ Blink::~Blink() {
 }
 
 const char* Blink::getModuleName() {
-	return ("瞬移");
+	return ("Blink");
 }
 
 void Blink::onTick(C_GameMode* gm) {

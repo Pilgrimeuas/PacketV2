@@ -15,7 +15,7 @@ AutoCity::~AutoCity() {
 }
 
 const char* AutoCity::getModuleName() {
-	return ("鬼手挖脚");
+	return ("AutoCity");
 }
 
 int AutoCity::ticksToMineAC(vec3_ti toMine) {

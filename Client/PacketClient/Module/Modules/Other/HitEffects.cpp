@@ -12,13 +12,13 @@ HitEffects::HitEffects() : IModule(0, Category::OTHER, "Renders an effect when y
 }
 
 const char* HitEffects::getRawModuleName() {
-	return "命中反馈";
+	return "HitEffects";
 }
 
 const char* HitEffects::getModuleName() {
-	if (sound.getSelectedValue() == 0) name = string("命中反馈 ") + string(GRAY) + string("Blood");
-	if (sound.getSelectedValue() == 1) name = string("命中反馈 ") + string(GRAY) + string("Old");
-	if (sound.getSelectedValue() == 2) name = string("命中反馈 ") + string(GRAY) + string("WTF");
+	if (sound.getSelectedValue() == 0) name = string("HitEffects ") + string(GRAY) + string("Blood");
+	if (sound.getSelectedValue() == 1) name = string("HitEffects ") + string(GRAY) + string("Old");
+	if (sound.getSelectedValue() == 2) name = string("HitEffects ") + string(GRAY) + string("WTF");
 	return name.c_str();
 }
 
@@ -32,8 +32,8 @@ void findEntityHitEffects(C_Entity* currentEntity, bool isRegularEntity) {
 	if (currentEntity == g_Data.getLocalPlayer())
 		return;
 
-	if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
-		return;
+	//if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false))
+		//return;
 
 	if (!g_Data.getLocalPlayer()->isAlive())
 		return;

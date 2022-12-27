@@ -14,7 +14,7 @@ KBFly::KBFly() : IModule(0, Category::MOVEMENT, "Fly when you take damage") {
 }
 
 const char* KBFly::getModuleName() {
-	return ("击退飞行");
+	return ("KBFly");
 }
 
 void KBFly::onTick(C_GameMode* gm) {

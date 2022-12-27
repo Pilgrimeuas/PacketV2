@@ -11,7 +11,7 @@ Derp::Derp() : IModule(0, Category::OTHER, "Makes you look retarded") {
 }
 
 const char* Derp::getModuleName() {
-	return "CSGO大陀螺";
+	return "Derp";
 }
 
 void Derp::onEnable() {

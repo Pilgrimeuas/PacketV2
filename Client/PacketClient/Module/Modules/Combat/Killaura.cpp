@@ -26,14 +26,14 @@ Killaura::Killaura() : IModule(0, Category::COMBAT, "Attacks entities") {
 }
 
 const char* Killaura::getRawModuleName() {
-	return "安全杀戮";
+	return "Killaura";
 }
 
 const char* Killaura::getModuleName() {
 	switch (mode.getSelectedValue()) {
-	case 0: name = string("安全杀戮 ") + string(GRAY) + string("Multi"); break;
-	case 1: name = string("安全杀戮 ") + string(GRAY) + string("Switch"); break;
-	case 2: name = string("安全杀戮 ") + string(GRAY) + string("Single"); break;
+	case 0: name = string("Killaura ") + string(GRAY) + string("Multi"); break;
+	case 1: name = string("Killaura ") + string(GRAY) + string("Switch"); break;
+	case 2: name = string("Killaura ") + string(GRAY) + string("Single"); break;
 	}
 	return name.c_str();
 }
@@ -44,7 +44,7 @@ void findEntity(C_Entity* currentEntity, bool isRegularEntity) {
 	std::string TargetUtilName = currentEntity->getNameTag()->getText();
 	if (currentEntity == nullptr) return;
 	if (currentEntity == g_Data.getLocalPlayer()) return;
-	if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false)) return;
+	//if (!g_Data.getLocalPlayer()->canAttack(currentEntity, false)) return;
 	if (!g_Data.getLocalPlayer()->isAlive()) return;
 	if (!currentEntity->isAlive()) return;
 	if (currentEntity->getEntityTypeId() == 80 || currentEntity->getEntityTypeId() == 69) return;

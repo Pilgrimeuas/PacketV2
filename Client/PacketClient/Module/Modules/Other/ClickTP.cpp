@@ -6,7 +6,7 @@ ClickTP::ClickTP() : IModule(0, Category::OTHER, "Teleports to where you are loo
 }
 
 const char* ClickTP::getModuleName() {
-	return "点地TP";
+	return "ClickTP";
 }
 
 void ClickTP::onTick(C_GameMode* gm) {

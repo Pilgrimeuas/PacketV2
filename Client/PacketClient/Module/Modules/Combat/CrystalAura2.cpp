@@ -55,7 +55,7 @@ CrystalAura2::CrystalAura2() : IModule(VK_NUMPAD0, Category::COMBAT, "horion goo
 CrystalAura2::~CrystalAura2() {
 }
 const char* CrystalAura2::getModuleName() {
-	return ("自动水晶2b2t");
+	return ("CrystalAura2b2t");
 }
 
 static std::vector<C_Entity*> targetList;

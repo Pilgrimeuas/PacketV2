@@ -8,7 +8,7 @@ AutoXP::~AutoXP() {
 }
 
 const char* AutoXP::getModuleName() {
-	return ("修甲");
+	return ("AutoXP");
 }
 bool AutoXP::getxp() {
 	__int64 id = *g_Data.getLocalPlayer()->getUniqueId();

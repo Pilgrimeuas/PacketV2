@@ -5,7 +5,7 @@ Xray::Xray() : IModule(0, Category::VISUAL, "Allows you to see through walls") {
 }
 
 const char* Xray::getModuleName() {
-	return ("X光透视");
+	return ("Xray");
 }
 
 void Xray::onEnable() {

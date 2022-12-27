@@ -24,7 +24,7 @@ Interface::Interface() : IModule(0, Category::VISUAL, "Displays the HUD") {
 }
 
 const char* Interface::getModuleName() {
-	return ("UI调控");
+	return ("Interface");
 }
 
 void Interface::onTick(C_GameMode* gm) {

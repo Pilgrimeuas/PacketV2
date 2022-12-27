@@ -6,7 +6,7 @@ ChestESP::ChestESP() : IModule(0, Category::VISUAL, "Outlines Chests") {
 }
 
 const char* ChestESP::getModuleName() {
-	return ("箱子透视");
+	return ("ChestESP");
 }
 
 void ChestESP::onPreRender(C_MinecraftUIRenderContext* renderCtx) {
